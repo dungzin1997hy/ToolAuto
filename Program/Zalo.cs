@@ -27,6 +27,7 @@ namespace ToolTest
         Bitmap SETTING;
         Bitmap LOGOUT;
         Bitmap YES;
+        Bitmap Skip;
 
 
         #endregion
@@ -50,6 +51,7 @@ namespace ToolTest
             LOGOUT = (Bitmap)Bitmap.FromFile("E://data//zalo//logout.png");
             YES = (Bitmap)Bitmap.FromFile("E://data//zalo//yes.png");
             WRONGPASSWORD2 = (Bitmap)Bitmap.FromFile("E://data//zalo//wrongpassword2.png");
+            Skip = (Bitmap)Bitmap.FromFile("E://data//zalo//skip.png");
         }
         public void Delay(int delay)
         {
@@ -278,109 +280,25 @@ namespace ToolTest
                 if (WrongUserPoint == null && WrongPassWordPoint == null)
                 {
                     Console.WriteLine("login thanh cong");
-                    return "Login Success";
+                    Delay(3);
+                    break;
+            
+                    
                 }
             }
 
+            Services.findImage(deviceID, Skip);
+            Delay(1);
+            Services.findImage(deviceID, Skip);
+            Delay(1);
 
+            return "Login Success";
         }
+       
         public string logout(String deviceID)
         {
 
-            while (true)
-            {
-                Delay(1);
-                if(Services.findImage(deviceID,MORE) == true)
-                {
-                    Console.WriteLine("clcick more");
-                    Delay(1);
-                    break;
-                }
-            }
-
-            //var screen = Services.ScreenShoot(deviceID);
-            //var morePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, MORE);
-            //if (morePoint != null)
-            //{
-            //    Console.WriteLine("click more");
-            //    KAutoHelper.ADBHelper.Tap(deviceID, morePoint.Value.X, morePoint.Value.Y);
-
-            //}
-            //Delay(1);
-
-            while (true)
-            {
-                Delay(1);
-                if (Services.findImage(deviceID, SETTING) == true)
-                {
-                    Console.WriteLine("clcick SETTING");
-                    break;
-                }
-            }
-
-
-            //screen = Services.ScreenShoot(deviceID);
-            //var SETTINGpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SETTING);
-            //if (SETTINGpoint != null)
-            //{
-            //    Console.WriteLine("click setting");
-            //    KAutoHelper.ADBHelper.Tap(deviceID, SETTINGpoint.Value.X, SETTINGpoint.Value.Y);
-
-            //}
-            //Delay(1);
-
-            while (true)
-            {
-                Delay(1);
-                if (Services.findImage(deviceID, LOGOUT) == true)
-                {
-                    Console.WriteLine("clcick LOGOUT");
-                    break;
-                }
-            }
-
-            while (true)
-            {
-                Delay(1);
-                if (Services.findImage(deviceID, YES) == true)
-                {
-                    Console.WriteLine("clcick yes");
-                    break;
-                }
-            }
-            //screen = Services.ScreenShoot(deviceID);
-            //var LOGOUTpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGOUT);
-
-            //if (LOGOUTpoint != null)
-            //{
-            //    Console.WriteLine("click logout");
-            //    KAutoHelper.ADBHelper.Tap(deviceID, LOGOUTpoint.Value.X, LOGOUTpoint.Value.Y);
-
-            //}
-            //Delay(1);
-            //screen = Services.ScreenShoot(deviceID);
-            //var yesPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, YES);
-
-            //if (yesPoint != null)
-            //{
-
-            //    KAutoHelper.ADBHelper.Tap(deviceID, yesPoint.Value.X, yesPoint.Value.Y);
-
-            //}
-            //Delay(1);
-            Boolean logging = true;
-            while (logging)
-            {
-                Console.WriteLine("dooi logout");
-                var screen = Services.ScreenShoot(deviceID);
-                var LOGGINGpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGGING);
-
-                if (LOGGINGpoint == null)
-                {
-                    logging = false;
-                }
-                Delay(1);
-            }
+            Exit(deviceID);
 
             return "Logout Success";
 

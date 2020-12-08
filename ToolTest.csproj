@@ -34,7 +34,7 @@
     <Compile Update="Program\MainProgram.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Program\Service.cs">
+    <Compile Update="Program\Services.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Program\Skype.cs">

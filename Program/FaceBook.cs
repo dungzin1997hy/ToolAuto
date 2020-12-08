@@ -410,7 +410,7 @@ namespace ToolTest
             {
                 Delay(20);
                 if (dem == 0) break;
-                code = MessageDAO.getCode(simID,MessageDAO.FBsql);
+                code = MessageDAO.getCodeFacebook(simID,MessageDAO.FBsql);
                 if (code == "" || code == null)
                 {
                     Console.WriteLine("DANG DOI TIN NHAN");
@@ -427,7 +427,7 @@ namespace ToolTest
             Console.WriteLine("Code: " + code);
             if (code.Equals(""))
             {
-                code = MessageDAO.getCode(simID, "");
+                code = MessageDAO.getCodeFacebook(simID, "");
                 Console.WriteLine("Code: " + code);
                 if (code.Equals("") || code == null)
                 {
@@ -644,7 +644,7 @@ namespace ToolTest
             KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
             Delay(3);
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.facebook.katana ");
-            Delay(3);
+            Delay(1);
             return "Exit Success";
 
         }

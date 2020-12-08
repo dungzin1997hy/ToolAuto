@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Threading;
+using ToolTest.dao;
 
 namespace ToolTest
 {
@@ -30,6 +31,12 @@ namespace ToolTest
         Bitmap SAVEINFO;
         Bitmap NOTIFY;
         Bitmap SIGNIN;
+        Bitmap SMS;
+        Bitmap PHONENUMBER;
+        Bitmap SENDCODE;
+        Bitmap ENTERCODE;
+        Bitmap VERIFY;
+        Bitmap WRONGCODE;
         #endregion
         public Skype()
         {
@@ -51,6 +58,14 @@ namespace ToolTest
             OK = (Bitmap)Bitmap.FromFile("E://data//skype//ok.png");
             NOTIFY = (Bitmap)Bitmap.FromFile("E://data//skype//notify.png");
             SIGNIN = (Bitmap)Bitmap.FromFile("E://data//skype//signin.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//skype//needcode.png");
+            SMS = (Bitmap)Bitmap.FromFile("E://data//skype//sms.png");
+            PHONENUMBER = (Bitmap)Bitmap.FromFile("E://data//skype//phonenumber.png");
+            SENDCODE = (Bitmap)Bitmap.FromFile("E://data//skype//sendcode.png");
+            ENTERCODE = (Bitmap)Bitmap.FromFile("E://data//skype//entercode.png");
+            CODE = (Bitmap)Bitmap.FromFile("E://data//skype//code.png");
+            VERIFY = (Bitmap)Bitmap.FromFile("E://data//skype//verify.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//skype//wrongcode.png");
         }
 
 
@@ -156,32 +171,36 @@ namespace ToolTest
 
 
 
-
-            var screen = Services.ScreenShoot(deviceID);
-            var LOGINACCOUNTpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINACCOUNT);
-            if (LOGINACCOUNTpoint != null)
+            while (true)
             {
-                KAutoHelper.ADBHelper.Tap(deviceID, LOGINACCOUNTpoint.Value.X, LOGINACCOUNTpoint.Value.Y);
-                Delay(1);
-            }
+                var screen = Services.ScreenShoot(deviceID);
+                var LOGINACCOUNTpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINACCOUNT);
+                if (LOGINACCOUNTpoint != null)
+                {
+                    KAutoHelper.ADBHelper.Tap(deviceID, LOGINACCOUNTpoint.Value.X, LOGINACCOUNTpoint.Value.Y);
+                    Delay(1);
+                    break;
+                }
 
-            screen = Services.ScreenShoot(deviceID);
-            var signinPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SIGNIN);
-            if (signinPoint != null)
-            {
-                KAutoHelper.ADBHelper.Tap(deviceID, signinPoint.Value.X, signinPoint.Value.Y);
-                Delay(1);
+                screen = Services.ScreenShoot(deviceID);
+                var signinPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SIGNIN);
+                if (signinPoint != null)
+                {
+                    KAutoHelper.ADBHelper.Tap(deviceID, signinPoint.Value.X, signinPoint.Value.Y);
+                    Delay(1);
+                    break;
+                }
             }
-
 
             while (true)
             {
                 Console.WriteLine("nhap tai khoan");
-                screen = Services.ScreenShoot(deviceID);
+                var screen = Services.ScreenShoot(deviceID);
                 var USERNAMEpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, USERNAME);
                 if (USERNAMEpoint != null)
                 {
                     KAutoHelper.ADBHelper.Tap(deviceID, USERNAMEpoint.Value.X, USERNAMEpoint.Value.Y);
+                    Delay(1);
                     KAutoHelper.ADBHelper.InputText(deviceID, username);
                     Delay(1);
                     break;
@@ -203,13 +222,7 @@ namespace ToolTest
                     Console.WriteLine("khong tim thay nut continue");
                 }
             }
-            //screen = Services.ScreenShoot(deviceID);
-            //var continuePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, CONTINUE);
-            //if (continuePoint != null)
-            //{
-            //    KAutoHelper.ADBHelper.Tap(deviceID, continuePoint.Value.X, continuePoint.Value.Y);
-            //    Delay(1);
-            //}
+
 
 
 
@@ -237,7 +250,7 @@ namespace ToolTest
 
                 while (true)
                 {
-                    screen = Services.ScreenShoot(deviceID);
+                    var screen = Services.ScreenShoot(deviceID);
                     var PASSWORDpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, PASSWORD);
                     if (PASSWORDpoint != null)
                     {
@@ -266,14 +279,7 @@ namespace ToolTest
                         Console.WriteLine("khong tim thay nut login");
                     }
                 }
-                //screen = Services.ScreenShoot(deviceID);
-                //var LOGINpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGIN);
-                //if (LOGINpoint != null)
-                //{
-                //    Console.WriteLine("click login lan 2");
-                //    KAutoHelper.ADBHelper.Tap(deviceID, LOGINpoint.Value.X, LOGINpoint.Value.Y);
-
-                //}
+        
                 Delay(1);
 
 
@@ -288,52 +294,212 @@ namespace ToolTest
             }
             while (true)
             {
-                Boolean isLogin = checkLogin(deviceID);
-                if (isLogin == true) break;
+                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var loginSuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
+                var needcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, NEEDCODE);
+                if(loginSuccessPoint!= null)
+                {
+                    return "Login Success";
+
+                }
+                if(needcodePoint!= null)
+                {
+                    return "Need Code";
+                }
             }
 
-            return "Login Success";
-
         }
-        public string logout(String deviceID)
+        public String inputCode(String deviceID,String phoneNumber,String simID)
         {
 
             while (true)
             {
-                if(Services.findImage(deviceID,SETTING)== true)
+                Delay(1);
+                if (Services.findImage(deviceID, SMS) == true)
                 {
-                    Console.WriteLine("click setting");
+                    Console.WriteLine("click SMS");
                     Delay(1);
                     break;
                 }
-            }
-            //var screen = Services.ScreenShoot(deviceID);
-            //var SETTINGpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SETTING);
-            //if (SETTINGpoint != null)
-            //{
+                else Console.WriteLine("khong tim thay nut SMS");
 
-            //    KAutoHelper.ADBHelper.Tap(deviceID, SETTINGpoint.Value.X, SETTINGpoint.Value.Y);
-            //    Delay(1);
-            //}
+            }
 
             while (true)
             {
-                if (Services.findImage(deviceID, LOGOUT) == true)
+                Delay(1);
+                if (Services.findImage(deviceID, PHONENUMBER) == true)
                 {
+                    Console.WriteLine("click phonenumber");
                     Delay(1);
-                    Console.WriteLine("click setting");
+                    int length = phoneNumber.Length;
+                    String phone = phoneNumber.Substring(length - 4, 4);
+                    KAutoHelper.ADBHelper.InputText(deviceID, phone);
+                    Delay(1);
                     break;
                 }
+                else Console.WriteLine("khong tim thay phoneNumber");
             }
-            Delay(5);
-            //screen = Services.ScreenShoot(deviceID);
-            //var logoutPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGOUT);
-            //if (logoutPoint != null)
-            //{
 
-            //    KAutoHelper.ADBHelper.Tap(deviceID, logoutPoint.Value.X + 10, logoutPoint.Value.Y + 10);
-            //    Thread.Sleep(TimeSpan.FromMilliseconds(5000));
-            //}
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, SENDCODE) == true)
+                {
+                    Console.WriteLine("click sendcode");
+                    Delay(1);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut sendcode");
+
+            }
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, ENTERCODE) == true)
+                {
+                    Console.WriteLine("click ETER CODE");
+                    Delay(1);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut sendcode");
+
+            }
+
+
+
+            int dem = 80;
+            String code = "";
+            while (true)
+            {
+                Delay(20);
+                if (dem == 0) break;
+                code = MessageDAO.getCodeSkype(simID, MessageDAO.FBsql);
+                if (code == "" || code == null)
+                {
+                    Console.WriteLine("DANG DOI TIN NHAN");
+                    dem -= 20;
+                }
+                else
+                {
+
+                    break;
+                }
+
+            }
+            Console.WriteLine("Code: " + code);
+            if (code.Equals(""))
+            {
+                code = MessageDAO.getCodeSkype(simID, "");
+                Console.WriteLine("Code: " + code);
+                if (code.Equals("") || code == null)
+                {
+                    return "Dont have Auth code";
+                }
+
+            }
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, CODE) == true)
+                {
+                    Console.WriteLine("click code");
+                    Delay(5);
+                    KAutoHelper.ADBHelper.InputText(deviceID, code);
+                    Delay(2);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut code");
+
+            }
+
+
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, VERIFY) == true)
+                {
+                    Console.WriteLine("click continue");
+                    Delay(5);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut continue");
+            }
+
+
+            while (true)
+            {
+                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var wrongcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGCODE);
+                var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
+                if (wrongcodePoint != null)
+                {
+                    Delay(1);
+                    while (true)
+                    {
+                        Delay(1);
+                        if (Services.findImage(deviceID, CODE) == true)
+                        {
+                            Console.WriteLine("click code");
+                            Delay(5);
+                            KAutoHelper.ADBHelper.InputText(deviceID, code);
+                            Delay(2);
+                            break;
+                        }
+                        else Console.WriteLine("khong tim thay nut code");
+
+                    }
+
+
+
+                    while (true)
+                    {
+                        Delay(1);
+                        if (Services.findImage(deviceID, VERIFY) == true)
+                        {
+                            Console.WriteLine("click continue");
+                            Delay(5);
+                            break;
+                        }
+                        else Console.WriteLine("khong tim thay nut continue");
+                    }
+
+                    while (true)
+                    {
+                        var screen1 = Services.ScreenShoot(deviceID);
+                        var wrongcodePoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, WRONGCODE);
+                        var loginsuccessPoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, LOGINSUCCESS);
+                        if(wrongcodePoint1!= null)
+                        {
+                            return "Wrong Auth Code";
+                        }
+                        if(loginsuccessPoint1!= null)
+                        {
+                            return "Login Success";
+                        }
+                    }
+
+                }
+                if (loginsuccessPoint != null)
+                {
+                    Delay(1);
+                    return "Login Success";
+                }
+            }
+
+
+            return "";
+        }
+        public string logout(String deviceID)
+        {
+
+            Exit(deviceID);
             return "Logout Success";
         }
         public string Exit(String deviceID)

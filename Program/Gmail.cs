@@ -3,33 +3,31 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Threading;
+using ToolTest.dao;
 
 namespace ToolTest
 {
     class Gmail
     {
         #region data
-        Bitmap GMAIL;
-        Bitmap FB;
+        Bitmap firefox;
+        Bitmap address;
+        Bitmap opensuccess;
+        Bitmap loginaccount;
+        Bitmap username;
         Bitmap CONTINUE;
-        Bitmap USERNAME;
-        Bitmap PASSWORD;
-        Bitmap LOGIN;
-        Bitmap LOGINACCOUNT;
         Bitmap WRONGUSERNAME;
+        Bitmap INPUTPASSWORD;
+        Bitmap PASSWORD;
+        Bitmap SAVEPASSWORD;
         Bitmap WRONGPASSWORD;
-        Bitmap LOGINSUCCESS;
-        Bitmap SETTING;
-        Bitmap LOGOUT;
-        Bitmap LOGGING;
-        Bitmap OK;
-        Bitmap RETRY;
-        Bitmap LOGINFAILED;
-        Bitmap NEEDCODE;
+        Bitmap INPUTCODE;
+        Bitmap TRYOTHERWAY;
+        Bitmap MESSAGE;
         Bitmap CODE;
-        Bitmap SAVEINFO;
-        Bitmap GOTIT;
-        Bitmap GOOGLE;
+        Bitmap WRONGCODE;
+        Bitmap LOGINSUCCESS;
+        Bitmap TOOMUCH;
         #endregion
         public Gmail()
         {
@@ -37,29 +35,27 @@ namespace ToolTest
         }
         void LoadData()
         {
-            GMAIL = (Bitmap)Bitmap.FromFile("E://data//gmail//gmail.png");
-            GOTIT = (Bitmap)Bitmap.FromFile("E://data//gmail//gotit.png");
-            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("E://data//gmail//loginaccount.png");
-            GOOGLE = (Bitmap)Bitmap.FromFile("E://data//gmail//google.png");
-            
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//gmail//username.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//facebook//continue.png");
+            firefox = (Bitmap)Bitmap.FromFile("E://data//gmail//firefox.png");
+            address = (Bitmap)Bitmap.FromFile("E://data//gmail//address.png");
+            opensuccess = (Bitmap)Bitmap.FromFile("E://data//gmail//opensuccess.png");
+            loginaccount = (Bitmap)Bitmap.FromFile("E://data//gmail//loginaccount.png");
+            username = (Bitmap)Bitmap.FromFile("E://data//gmail//username.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//gmail//continue.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongusername.png");
+            INPUTPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//inputpassword.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//password.png");
+            SAVEPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//savepassword.png");
+            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongpassword.png");
+            INPUTCODE = (Bitmap)Bitmap.FromFile("E://data//gmail//inputcode.png");
+            TRYOTHERWAY = (Bitmap)Bitmap.FromFile("E://data//gmail//tryotherway.png");
+            MESSAGE = (Bitmap)Bitmap.FromFile("E://data//gmail//message.png");
+            CODE = (Bitmap)Bitmap.FromFile("E://data//gmail//code.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongcode.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//gmail//loginsuccess.png");
+            TOOMUCH = (Bitmap)Bitmap.FromFile("E://data//gmail//toomuch.png");
 
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//facebook//password.png");
-            LOGIN = (Bitmap)Bitmap.FromFile("E://data//facebook//login.png");
-            
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//facebook//wrongusername.png");
-            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//facebook//wrongpassword.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//facebook//loginsuccess.png");
-            SETTING = (Bitmap)Bitmap.FromFile("E://data//facebook//setting.png");
-            LOGOUT = (Bitmap)Bitmap.FromFile("E://data//facebook//logout.png");
-            LOGGING = (Bitmap)Bitmap.FromFile("E://data//facebook//logging.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//facebook//OK.png");
-            RETRY = (Bitmap)Bitmap.FromFile("E://data//facebook//retry.png");
-            LOGINFAILED = (Bitmap)Bitmap.FromFile("E://data//facebook//loginfailed.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//facebook//needcode.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//facebook//code.png");
-            SAVEINFO = (Bitmap)Bitmap.FromFile("E://data//facebook//saveinfo.png");
+          
+
         }
         public void Delay(int delay)
         {
@@ -70,175 +66,443 @@ namespace ToolTest
 
             }
         }
-        public string chooseFacebook(String deviceID)
+        public string chooseFireFox(String deviceID, String noxID)
         {
+            KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear org.mozilla.firefox ");
+            Delay(3);
+            Exit(deviceID);
+            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:org.mozilla.firefox");
+            Console.WriteLine("adb -s " + deviceID + " shell pm clear org.mozilla.firefox ");
+            int count = 10;
             while (true)
             {
-                var screen = Services.ScreenShoot(deviceID, false);
-                var FBpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, FB);
-                if (FBpoint != null)
+                if (count == 0)
                 {
-                    KAutoHelper.ADBHelper.Tap(deviceID, FBpoint.Value.X, FBpoint.Value.Y);
-                    Delay(2);
-                    return "Open FaceBook Success";
+                    Console.WriteLine("install firefox ");
+                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\firefox.apk\"");
+                    Delay(1);
+                    int dem = 30;
+                    while (true)
+                    {
+                        var screen1 = Services.ScreenShoot(deviceID);
+                        var firefoxPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, firefox);
+                        
+
+                        if (firefoxPoint != null)
+                        {
+                            KAutoHelper.ADBHelper.Tap(deviceID, firefoxPoint.Value.X, firefoxPoint.Value.Y);
+                            Delay(1);
+                            break;
+                        }
+                        else
+                        {
+                            dem--;
+                            Delay(1);
+                        }
+                        if(dem == 0)
+                        {
+                            Console.WriteLine("loi app");
+                            return "Open App Error";
+                        }
+
+                    }
+                    return "Open FireFox Success";
                 }
-                KAutoHelper.ADBHelper.SwipeByPercent(deviceID, 90, 50, 10, 50);
-                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var firefoxP = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, firefox);
+                
+
+                if (firefoxP != null)
+                {
+                    return "Open FireFox Success";
+
+                }
+                else
+                {
+                    Delay(1);
+                    count--;
+                }
             }
 
         }
-        public string login(String deviceID, String username, String password)
+
+        public string chooseGmail(String deviceID)
         {
-            String result = "";
             while (true)
             {
-                var screen1 = Services.ScreenShoot(deviceID);
-                var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, LOGINSUCCESS);
-                var loginAccountPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, LOGINACCOUNT);
-                var usernamePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, USERNAME);
+                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var addressPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, address);
+                if(addressPoint!= null)
+                {
+                    Console.WriteLine("click o dia chi");
+                    KAutoHelper.ADBHelper.Tap(deviceID, addressPoint.Value.X, addressPoint.Value.Y);
+                    Delay(1);
+                    KAutoHelper.ADBHelper.Tap(deviceID, addressPoint.Value.X, addressPoint.Value.Y);
+                    Delay(1);
+                    Delay(7);
+                    Console.WriteLine("nhap gmail");
+                    KAutoHelper.ADBHelper.InputText(deviceID, "gmail.com");
+                    Delay(1);
+                    KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_ENTER);
+                    Delay(2);
+                    break;
+                }
+            }
 
-                if (loginsuccessPoint != null || loginAccountPoint != null || usernamePoint != null)
+            while (true)
+            {
+                Console.WriteLine("ngoif doi");
+                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var opensuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, opensuccess);
+                var loginaccountPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, opensuccess);
+                if(opensuccessPoint!= null)
                 {
                     break;
                 }
-                else Delay(1);
+                if(loginaccountPoint!= null)
+                {
+                    Console.WriteLine("click dang nhap");
+                    KAutoHelper.ADBHelper.Tap(deviceID, loginaccountPoint.Value.X, loginaccountPoint.Value.Y);
+                    Delay(1);
+                    while (Services.findImage(deviceID, opensuccess) == false)
+                    {
+                        Delay(1);
+                    }
+                    break;
 
-
+                }
             }
+
+            KAutoHelper.ADBHelper.Tap(deviceID, 300, 1000);
+            Delay(1);
+
+            return "Open Gmail Success";
+
+
+
+        }
+
+        public string login(String deviceID, String name, String password, String noxID)
+        {
+           
             if (checkLogin(deviceID) == true)
             {
-                return "Already Login";
+                Console.WriteLine("da dang nhap");
+                Console.WriteLine("doi dang xuat");
+                logout(deviceID);
+                Exit(deviceID);
+                chooseFireFox(deviceID, noxID);
+                chooseGmail(deviceID);
+                Delay(1);
             }
 
-            var screen = Services.ScreenShoot(deviceID);
-            var LOGINACCOUNTpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINACCOUNT);
-            if (LOGINACCOUNTpoint != null)
-            {
-                KAutoHelper.ADBHelper.Tap(deviceID, LOGINACCOUNTpoint.Value.X, LOGINACCOUNTpoint.Value.Y);
-
-            }
+            
             Delay(1);
             int dem = 3;
             while (true)
             {
                 if (dem < 3)
                 {
-                    screen = Services.ScreenShoot(deviceID);
-                    var PASSWORDpoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, PASSWORD);
-                    if (PASSWORDpoint1 != null)
+                    KAutoHelper.ADBHelper.Tap(deviceID, 300, 1000);
+                    Delay(1);
+                    while (true)
                     {
-                        KAutoHelper.ADBHelper.Tap(deviceID, PASSWORDpoint1.Value.X, PASSWORDpoint1.Value.Y);
-                        KAutoHelper.ADBHelper.InputText(deviceID, password);
+                        Delay(1);
+                        if (Services.findImage(deviceID, PASSWORD) == true)
+                        {
+                            Console.WriteLine("click password");
+                            break;
+                        }
+                        else Console.WriteLine("khong tim thay nut password");
                     }
+                    KAutoHelper.ADBHelper.InputText(deviceID, password);
                     Delay(1);
                 }
                 if (dem == 3)
                 {
-                    screen = Services.ScreenShoot(deviceID);
-                    var USERNAMEpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, USERNAME);
-                    if (USERNAMEpoint != null)
+                    while (true)
                     {
-                        KAutoHelper.ADBHelper.Tap(deviceID, USERNAMEpoint.Value.X, USERNAMEpoint.Value.Y);
-                        KAutoHelper.ADBHelper.InputText(deviceID, username);
-                        KAutoHelper.ADBHelper.TapByPercent(deviceID, 46.5, 5.0);
+                        Delay(1);
+                        if (Services.findImage(deviceID, username) == true)
+                        {
+
+                            Console.WriteLine("click username");
+                            Delay(1);
+                            KAutoHelper.ADBHelper.InputText(deviceID, name);
+                            Delay(1);
+                            break;
+                        }
+                        else Console.WriteLine("khong tim thay nut username");
                     }
-                    Delay(1);
+                    Services.findImage(deviceID, username);
+                    while (true)
+                    {
+                        Delay(1);
+                        if(Services.findImage(deviceID,CONTINUE) == true)
+                        {
+                            Console.WriteLine("click continue username");
+                            Delay(1);
+                            break;
+                        }
+                    }
 
-                    KAutoHelper.ADBHelper.TapByPercent(deviceID, 50, 10);
+                    while (true)
+                    {
+                        Delay(1);
+                        var screen = Services.ScreenShoot(deviceID);
+                        var wrongusernamePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGUSERNAME);
+                        var inputpasswordPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, INPUTPASSWORD);
+                        if(wrongusernamePoint!= null)
+                        {
+                            Console.WriteLine("wrong username");
+                            Delay(1);
+                            Exit(deviceID);
+                            return "Wrong Username";
+                        }
+                        if(inputpasswordPoint != null)
+                        {
+                            Console.WriteLine("den nhap password");
+                            Delay(1);
+                            KAutoHelper.ADBHelper.Tap(deviceID, 300, 1000);
+                            Delay(1);
+                            break;
+
+                        }
+                     
+                    }
                 }
 
-                screen = Services.ScreenShoot(deviceID);
-                var PASSWORDpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, PASSWORD);
-                if (PASSWORDpoint != null)
+                while (true)
                 {
-                    KAutoHelper.ADBHelper.Tap(deviceID, PASSWORDpoint.Value.X, PASSWORDpoint.Value.Y);
-                    KAutoHelper.ADBHelper.InputText(deviceID, password);
+                    Delay(1);
+                    if (Services.findImage(deviceID, PASSWORD) == true)
+                    {
+                        Console.WriteLine("click password");
+                        break;
+                    }
+                    else Console.WriteLine("khong tim thay nut password");
                 }
+                KAutoHelper.ADBHelper.InputText(deviceID, password);
                 Delay(1);
 
-
-
-                screen = Services.ScreenShoot(deviceID);
-                var LOGINpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGIN);
-                if (LOGINpoint != null)
+                while (true)
                 {
-                    KAutoHelper.ADBHelper.Tap(deviceID, LOGINpoint.Value.X, LOGINpoint.Value.Y);
-
-                }
-                Delay(1);
-
-                //ĐỢI LOGIN
-                Boolean logging = true;
-                while (logging)
-                {
-                    Console.WriteLine("dang doi dang nhap");
-                    screen = Services.ScreenShoot(deviceID);
-                    var LOGGINGpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGGING);
-
-                    if (LOGGINGpoint == null)
+                    Delay(1);
+                    if(Services.findImage(deviceID,CONTINUE) == true)
                     {
-                        logging = false;
+                        Console.WriteLine("click continue");
+                        Delay(1);
+                        break;
                     }
+                }
+
+
+                while (true)
+                {
                     Delay(1);
+                    if(Services.findImage(deviceID,SAVEPASSWORD) == true)
+                    {
+                        Console.WriteLine("click never");
+                        Delay(1);
+                        break;
+
+                    }
                 }
 
-
-                // CHECK LỖI
-                screen = Services.ScreenShoot(deviceID);
-                var WrongUserPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGUSERNAME);
-                var WrongPassWordPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGPASSWORD);
-                // LỖI SAI TK, TẮT APP
-                if (WrongUserPoint != null)
+                while (true)
                 {
-                    Exit(deviceID);
-                    return "Wrong Username";
-                }
-
-                // LỖI SAI MK, NHẬP LẠI MK
-                if (WrongPassWordPoint != null)
-                {
-                    var Okpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, OK);
-                    KAutoHelper.ADBHelper.Tap(deviceID, Okpoint.Value.X, Okpoint.Value.Y);
                     Delay(1);
-                    dem--;
-                }
-                if (WrongPassWordPoint != null && dem == 0)
-                {
-                    return "Wrong Password";
-                }
-                if (WrongUserPoint == null || WrongPassWordPoint == null)
-                {
-                    return "Need Code";
+                    var screen = Services.ScreenShoot(deviceID);
+                    var wrongpasswordPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGPASSWORD);
+                    var inputcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, INPUTCODE);
+                    var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
+                    var toomuchPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, TOOMUCH);
+                    // thiếu đoạn đăng nhập thành công
+                    if(wrongpasswordPoint!= null)
+                    {
+                        Console.WriteLine("sia mat khau");
+                        dem--;
+                        break;
+                    }
+                    
+                    if(toomuchPoint!= null)
+                    {
+                        Console.WriteLine("thu qua nhieu lan");
+                        Delay(1);
+                        return "Too Much Try";
+                    }
+                    if(inputcodePoint != null)
+                    {
+                        Console.WriteLine("can code");
+                        Delay(1);
+                        return "Choose Auth Method";
+                    }
+                    
+                    if(loginsuccessPoint!= null)
+                    {
+                        Console.WriteLine("login success");
+                        return "Login Success";
+                    }
                 }
             }
-            return result;
+            
 
         }
-        public string logout(String deviceID)
+
+
+        public string inputCode(String deviceID, String simID)
         {
 
-            var screen = Services.ScreenShoot(deviceID);
-            var SETTINGpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SETTING);
-            if (SETTINGpoint != null)
+            while (true)
             {
-                KAutoHelper.ADBHelper.Tap(deviceID, SETTINGpoint.Value.X, SETTINGpoint.Value.Y);
+                Delay(1);
+                if (Services.findImage(deviceID, TRYOTHERWAY) == true)
+                {
+                    Console.WriteLine("click cach khac");
+                    Delay(5);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut other way");
 
             }
-            Delay(1);
 
-            KAutoHelper.ADBHelper.SwipeByPercent(deviceID, 50, 90, 50, 10);
-            Delay(1);
-
-            screen = Services.ScreenShoot(deviceID);
-            var LOGOUTpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGOUT);
-
-            if (SETTINGpoint != null)
+            while (true)
             {
+                Delay(1);
+                if (Services.findImage(deviceID, MESSAGE) == true)
+                {
+                    Console.WriteLine("click message");
+                    Delay(5);
+                    KAutoHelper.ADBHelper.Tap(deviceID, 300, 900);
+                    Delay(1);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay tin nhan");
+            }
 
-                KAutoHelper.ADBHelper.Tap(deviceID, LOGOUTpoint.Value.X, LOGOUTpoint.Value.Y);
+
+
+
+
+
+
+            int dem = 80;
+            String code = "";
+            while (true)
+            {
+                Delay(20);
+                if (dem == 0) break;
+                code = MessageDAO.getCodeGmail(simID, MessageDAO.FBsql);
+                if (code == "" || code == null)
+                {
+                    Console.WriteLine("DANG DOI TIN NHAN");
+                    dem -= 20;
+                }
+                else
+                {
+
+                    break;
+                }
 
             }
-            Delay(1);
+            Console.WriteLine("Code: " + code);
+            if (code.Equals(""))
+            {
+                code = MessageDAO.getCodeGmail(simID, "");
+                Console.WriteLine("Code: " + code);
+                if (code.Equals("") || code == null)
+                {
+                    return "Dont have Auth code";
+                }
+
+            }
+
+
+
+
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, CODE) == true)
+                {
+                    Console.WriteLine("click code");
+                    Delay(5);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut code");
+
+            }
+
+
+            KAutoHelper.ADBHelper.InputText(deviceID, code);
+            Delay(2);
+
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, CONTINUE) == true)
+                {
+                    Console.WriteLine("click continue");
+                    Delay(5);
+                    break;
+                }
+                else Console.WriteLine("khong tim thay nut continue");
+            }
+
+
+            //screen = Services.ScreenShoot(deviceID);
+            //codePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGCODE);
+            //if (codePoint != null)
+            //{
+            //    Console.WriteLine("sai code ");
+            //    return "Wrong Auth Code";
+            //}
+
+
+            //while (true)
+            //{
+            //    screen = Services.ScreenShoot(deviceID);
+            //    var loggingPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGGING);
+
+            //    if (loggingPoint == null)
+            //    {
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        Delay(1);
+            //    }
+            //}
+
+            while (true)
+            {
+                Delay(1);
+                var screen = Services.ScreenShoot(deviceID);
+                var wrongcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGCODE);
+                var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
+                if(wrongcodePoint!= null)
+                {
+                    Delay(1);
+                    return "Wrong Auth Code";
+
+                }
+                if(loginsuccessPoint!= null)
+                {
+                    Delay(1);
+                    return "Login Success";
+                }
+            }
+
+
+        }
+
+       
+        public string logout(String deviceID)
+        {
             Exit(deviceID);
             return "Logout Success";
 
@@ -249,11 +513,24 @@ namespace ToolTest
 
             KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_APP_SWITCH);
             Delay(1);
-            KAutoHelper.ADBHelper.SwipeByPercent(deviceID, 50, 50, 10, 50);
+            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
+            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
+            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
+            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+            Thread.Sleep(TimeSpan.FromMilliseconds(500));
             Delay(1);
             KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
-            Delay(5);
-
+            Delay(1);
+            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
+            Delay(1);
+            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
+            Delay(3);
+            KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear org.mozilla.firefox ");
+            Delay(3);
             return "Exit Success";
 
         }
@@ -263,23 +540,7 @@ namespace ToolTest
         {
             Boolean isLogin = false;
 
-
-
-
             var screen = Services.ScreenShoot(deviceID);
-            var SAVEINFOpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SAVEINFO);
-            if (SAVEINFOpoint != null)
-            {
-
-                var point = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, OK);
-
-                Console.WriteLine(point.Value.X);
-                KAutoHelper.ADBHelper.Tap(deviceID, point.Value.X, point.Value.Y);
-                Delay(1);
-
-            }
-
-            screen = Services.ScreenShoot(deviceID);
             var LOGINSUCCESSpoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
 
             if (LOGINSUCCESSpoint != null)
@@ -288,7 +549,8 @@ namespace ToolTest
             }
             Delay(1);
             return isLogin;
-
         }
+
     }
 }
+
