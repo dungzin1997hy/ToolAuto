@@ -82,7 +82,7 @@ namespace ToolTest
         {
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.skype.raider ");
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.skype.raider");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:com.skype.raider");
 
 
             int count = 20;
@@ -91,7 +91,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install skype ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\Skype.apk\"");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\Skype.apk\"");
                     Delay(1);
                     int dem = 30;
                     while (true)

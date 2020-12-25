@@ -69,7 +69,7 @@ namespace ToolTest
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.viber.voip ");
             Delay(3);
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.viber.voip");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:com.viber.voip");
             Console.WriteLine("adb -s " + deviceID + " shell pm clear com.viber.voip ");
             int count = 20;
             while (true)
@@ -77,7 +77,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install facebook ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\viper.apk");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\viper.apk");
                     Delay(1);
                     while (true)
                     {

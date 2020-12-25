@@ -66,7 +66,7 @@ namespace ToolTest
         {
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.whatsapp ");
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.whatsapp");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:com.whatsapp");
 
 
             int count = 20;
@@ -75,7 +75,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install whatsapp ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\whatsapp.apk\"");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\whatsapp.apk\"");
                     Delay(1);
                     int dem = 30;
                     while (true)

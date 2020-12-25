@@ -69,7 +69,7 @@ namespace ToolTest
         {
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.twitter.android ");
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.twitter.android");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:com.twitter.android");
 
 
             int count = 20;
@@ -78,7 +78,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install twitter ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\twitter.apk\"");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\twitter.apk\"");
                     Delay(1);
                     int dem = 30;
                     while (true)

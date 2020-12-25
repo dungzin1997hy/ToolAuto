@@ -16,7 +16,8 @@ namespace ToolTest
 
     class MainProgram
     {
-
+        public static String linkNox = "C:\\Program Files (x86)\\Nox\\bin\\Nox.exe";
+        public static String linkApk = "C:\\Program Files (x86)\\Nox\\apk";
         static void Main(string[] args)
         {
             

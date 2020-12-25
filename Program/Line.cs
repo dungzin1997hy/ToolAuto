@@ -68,7 +68,7 @@ namespace ToolTest
         {
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear jp.naver.line.android ");
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:jp.naver.line.android");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:jp.naver.line.android");
 
 
             int count = 20;
@@ -77,7 +77,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install line ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\line.apk\"");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\line.apk\"");
                     Delay(1);
                     int dem = 30;
                     while (true)

@@ -55,7 +55,7 @@ namespace ToolTest
         {
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.ubercab ");
             Exit(deviceID);
-            KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.ubercab");
+            KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " -package:com.ubercab");
 
 
             int count = 20;
@@ -64,7 +64,7 @@ namespace ToolTest
                 if (count == 0)
                 {
                     Console.WriteLine("install uber ");
-                    KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " \"-apk:D:\\Nox\\apk\\uber.apk\"");
+                    KAutoHelper.ADBHelper.ExecuteCMD(MainProgram.linkNox + " -clone:" + noxID + " \"-apk:" + MainProgram.linkApk + "\\uber.apk\"");
                     Delay(1);
                     int dem = 30;
                     while (true)
