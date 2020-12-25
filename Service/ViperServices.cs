@@ -9,8 +9,8 @@ namespace ToolTest
 {
     class ViperServices
     {
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("E://data//facebook//forcestop.png");
-        Bitmap Response = (Bitmap)Bitmap.FromFile("E://data//facebook//response.png");
+        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
+        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
 
         public Viper skype = new Viper();
         public Services services = new Services();

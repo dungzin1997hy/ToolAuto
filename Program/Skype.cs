@@ -44,28 +44,28 @@ namespace ToolTest
         }
         void LoadData()
         {
-            SKYPE = (Bitmap)Bitmap.FromFile("E://data//skype//skype.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//skype//continue.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//skype//username.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//skype//password.png");
-            LOGIN = (Bitmap)Bitmap.FromFile("E://data//skype//login.png");
-            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("E://data//skype//loginaccount.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//skype//wrongusername.png");
-            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//skype//wrongpassword.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//skype//loginsuccess.png");
-            SETTING = (Bitmap)Bitmap.FromFile("E://data//skype//setting.png");
-            LOGOUT = (Bitmap)Bitmap.FromFile("E://data//skype//logout.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//skype//ok.png");
-            NOTIFY = (Bitmap)Bitmap.FromFile("E://data//skype//notify.png");
-            SIGNIN = (Bitmap)Bitmap.FromFile("E://data//skype//signin.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//skype//needcode.png");
-            SMS = (Bitmap)Bitmap.FromFile("E://data//skype//sms.png");
-            PHONENUMBER = (Bitmap)Bitmap.FromFile("E://data//skype//phonenumber.png");
-            SENDCODE = (Bitmap)Bitmap.FromFile("E://data//skype//sendcode.png");
-            ENTERCODE = (Bitmap)Bitmap.FromFile("E://data//skype//entercode.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//skype//code.png");
-            VERIFY = (Bitmap)Bitmap.FromFile("E://data//skype//verify.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//skype//wrongcode.png");
+            SKYPE = (Bitmap)Bitmap.FromFile("C://data//skype//skype.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//skype//continue.png");
+            USERNAME = (Bitmap)Bitmap.FromFile("C://data//skype//username.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//skype//password.png");
+            LOGIN = (Bitmap)Bitmap.FromFile("C://data//skype//login.png");
+            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("C://data//skype//loginaccount.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//skype//wrongusername.png");
+            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("C://data//skype//wrongpassword.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//skype//loginsuccess.png");
+            SETTING = (Bitmap)Bitmap.FromFile("C://data//skype//setting.png");
+            LOGOUT = (Bitmap)Bitmap.FromFile("C://data//skype//logout.png");
+            OK = (Bitmap)Bitmap.FromFile("C://data//skype//ok.png");
+            NOTIFY = (Bitmap)Bitmap.FromFile("C://data//skype//notify.png");
+            SIGNIN = (Bitmap)Bitmap.FromFile("C://data//skype//signin.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//skype//needcode.png");
+            SMS = (Bitmap)Bitmap.FromFile("C://data//skype//sms.png");
+            PHONENUMBER = (Bitmap)Bitmap.FromFile("C://data//skype//phonenumber.png");
+            SENDCODE = (Bitmap)Bitmap.FromFile("C://data//skype//sendcode.png");
+            ENTERCODE = (Bitmap)Bitmap.FromFile("C://data//skype//entercode.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//skype//code.png");
+            VERIFY = (Bitmap)Bitmap.FromFile("C://data//skype//verify.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//skype//wrongcode.png");
         }
 
 

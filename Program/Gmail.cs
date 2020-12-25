@@ -35,24 +35,24 @@ namespace ToolTest
         }
         void LoadData()
         {
-            firefox = (Bitmap)Bitmap.FromFile("E://data//gmail//firefox.png");
-            address = (Bitmap)Bitmap.FromFile("E://data//gmail//address.png");
-            opensuccess = (Bitmap)Bitmap.FromFile("E://data//gmail//opensuccess.png");
-            loginaccount = (Bitmap)Bitmap.FromFile("E://data//gmail//loginaccount.png");
-            username = (Bitmap)Bitmap.FromFile("E://data//gmail//username.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//gmail//continue.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongusername.png");
-            INPUTPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//inputpassword.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//password.png");
-            SAVEPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//savepassword.png");
-            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongpassword.png");
-            INPUTCODE = (Bitmap)Bitmap.FromFile("E://data//gmail//inputcode.png");
-            TRYOTHERWAY = (Bitmap)Bitmap.FromFile("E://data//gmail//tryotherway.png");
-            MESSAGE = (Bitmap)Bitmap.FromFile("E://data//gmail//message.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//gmail//code.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//gmail//wrongcode.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//gmail//loginsuccess.png");
-            TOOMUCH = (Bitmap)Bitmap.FromFile("E://data//gmail//toomuch.png");
+            firefox = (Bitmap)Bitmap.FromFile("C://data//gmail//firefox.png");
+            address = (Bitmap)Bitmap.FromFile("C://data//gmail//address.png");
+            opensuccess = (Bitmap)Bitmap.FromFile("C://data//gmail//opensuccess.png");
+            loginaccount = (Bitmap)Bitmap.FromFile("C://data//gmail//loginaccount.png");
+            username = (Bitmap)Bitmap.FromFile("C://data//gmail//username.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//gmail//continue.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//gmail//wrongusername.png");
+            INPUTPASSWORD = (Bitmap)Bitmap.FromFile("C://data//gmail//inputpassword.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//gmail//password.png");
+            SAVEPASSWORD = (Bitmap)Bitmap.FromFile("C://data//gmail//savepassword.png");
+            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("C://data//gmail//wrongpassword.png");
+            INPUTCODE = (Bitmap)Bitmap.FromFile("C://data//gmail//inputcode.png");
+            TRYOTHERWAY = (Bitmap)Bitmap.FromFile("C://data//gmail//tryotherway.png");
+            MESSAGE = (Bitmap)Bitmap.FromFile("C://data//gmail//message.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//gmail//code.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//gmail//wrongcode.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//gmail//loginsuccess.png");
+            TOOMUCH = (Bitmap)Bitmap.FromFile("C://data//gmail//toomuch.png");
 
           
 

@@ -10,8 +10,8 @@ namespace ToolTest
     class LineService
 
     {
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("E://data//facebook//forcestop.png");
-        Bitmap Response = (Bitmap)Bitmap.FromFile("E://data//facebook//response.png");
+        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
+        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
 
         public Line line = new Line();
         public Services services = new Services();

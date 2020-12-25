@@ -36,20 +36,20 @@ namespace ToolTest
         }
         void LoadData()
         {
-            LINE = (Bitmap)Bitmap.FromFile("E://data//line//line.png");
-            LOGIN = (Bitmap)Bitmap.FromFile("E://data//line//login.png");
-            LOGINPHONE = (Bitmap)Bitmap.FromFile("E://data//line//loginphone.png");
-            PHONENUMBER = (Bitmap)Bitmap.FromFile("E://data//line//phonenumber.png");
-            NEXT = (Bitmap)Bitmap.FromFile("E://data//line//next.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//line//ok.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//line//wrongusername.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//line//needcode.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//line//wrongcode.png");
-            YESACCOUNT = (Bitmap)Bitmap.FromFile("E://data//line//yesaccount.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//line//password.png");
-            SKIP = (Bitmap)Bitmap.FromFile("E://data//line//skip.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//line//continue.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//line//loginsuccess.png");
+            LINE = (Bitmap)Bitmap.FromFile("C://data//line//line.png");
+            LOGIN = (Bitmap)Bitmap.FromFile("C://data//line//login.png");
+            LOGINPHONE = (Bitmap)Bitmap.FromFile("C://data//line//loginphone.png");
+            PHONENUMBER = (Bitmap)Bitmap.FromFile("C://data//line//phonenumber.png");
+            NEXT = (Bitmap)Bitmap.FromFile("C://data//line//next.png");
+            OK = (Bitmap)Bitmap.FromFile("C://data//line//ok.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//line//wrongusername.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//line//needcode.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//line//wrongcode.png");
+            YESACCOUNT = (Bitmap)Bitmap.FromFile("C://data//line//yesaccount.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//line//password.png");
+            SKIP = (Bitmap)Bitmap.FromFile("C://data//line//skip.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//line//continue.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//line//loginsuccess.png");
 
 
         }

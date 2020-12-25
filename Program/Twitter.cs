@@ -35,22 +35,22 @@ namespace ToolTest
         }
         void LoadData()
         {
-            TWITTER = (Bitmap)Bitmap.FromFile("E://data//twitter//twitter.png");
-            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("E://data//twitter//loginaccount.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//twitter//username.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//twitter//password.png");
-            LOGIN = (Bitmap)Bitmap.FromFile("E://data//twitter//login.png");
-            LOGGING = (Bitmap)Bitmap.FromFile("E://data//twitter//logging.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//twitter//needcode.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//twitter//code.png");
-            LOGIN2 = (Bitmap)Bitmap.FromFile("E://data//twitter//login2.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//twitter//loginsuccess.png");
-            SETTING = (Bitmap)Bitmap.FromFile("E://data//twitter//setting.png");
-            SETTING2 = (Bitmap)Bitmap.FromFile("E://data//twitter//setting2.png");
-            ACCOUNT = (Bitmap)Bitmap.FromFile("E://data//twitter//account.png");
-            LOGOUT = (Bitmap)Bitmap.FromFile("E://data//twitter//logout.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//twitter//ok.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//twitter//wrongcode.png");
+            TWITTER = (Bitmap)Bitmap.FromFile("C://data//twitter//twitter.png");
+            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("C://data//twitter//loginaccount.png");
+            USERNAME = (Bitmap)Bitmap.FromFile("C://data//twitter//username.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//twitter//password.png");
+            LOGIN = (Bitmap)Bitmap.FromFile("C://data//twitter//login.png");
+            LOGGING = (Bitmap)Bitmap.FromFile("C://data//twitter//logging.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//twitter//needcode.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//twitter//code.png");
+            LOGIN2 = (Bitmap)Bitmap.FromFile("C://data//twitter//login2.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//twitter//loginsuccess.png");
+            SETTING = (Bitmap)Bitmap.FromFile("C://data//twitter//setting.png");
+            SETTING2 = (Bitmap)Bitmap.FromFile("C://data//twitter//setting2.png");
+            ACCOUNT = (Bitmap)Bitmap.FromFile("C://data//twitter//account.png");
+            LOGOUT = (Bitmap)Bitmap.FromFile("C://data//twitter//logout.png");
+            OK = (Bitmap)Bitmap.FromFile("C://data//twitter//ok.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//twitter//wrongcode.png");
             
 
         }

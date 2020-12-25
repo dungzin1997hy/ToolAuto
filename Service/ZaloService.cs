@@ -12,9 +12,9 @@ namespace ToolTest
     
     class ZaloService
     {
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("E://data//facebook//forcestop.png");
+        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
 
-        Bitmap Response = (Bitmap)Bitmap.FromFile("E://data//facebook//response.png");
+        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
         public Zalo zalo = new Zalo();
         public Services services = new Services();
         public static Boolean isStop;

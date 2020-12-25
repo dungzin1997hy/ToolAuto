@@ -45,32 +45,32 @@ namespace ToolTest
         }
         void LoadData()
         {
-            FB = (Bitmap)Bitmap.FromFile("E://data//facebook//fb.png");
-            LIKE = (Bitmap)Bitmap.FromFile("E://data//facebook//like.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//facebook//continue.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//facebook//username.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//facebook//password.png");
-            LOGIN = (Bitmap)Bitmap.FromFile("E://data//facebook//login.png");
-            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("E://data//facebook//loginaccount.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//facebook//wrongusername.png");
-            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//facebook//wrongpassword.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//facebook//loginsuccess.png");
-            SETTING = (Bitmap)Bitmap.FromFile("E://data//facebook//setting.png");
-            LOGOUT = (Bitmap)Bitmap.FromFile("E://data//facebook//logout.png");
-            LOGGING = (Bitmap)Bitmap.FromFile("E://data//facebook//logging.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//facebook//OK.png");
-            RETRY = (Bitmap)Bitmap.FromFile("E://data//facebook//retry.png");
-            LOGINFAILED = (Bitmap)Bitmap.FromFile("E://data//facebook//loginfailed.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//facebook//needcode.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//facebook//code.png");
-            SAVEINFO = (Bitmap)Bitmap.FromFile("E://data//facebook//saveinfo.png");
-            INTERNETERROR = (Bitmap)Bitmap.FromFile("E://data//facebook//interneterror.png");
-            FBICON = (Bitmap)Bitmap.FromFile("E://data//facebook//fbicon.png");
-            FRIEND = (Bitmap)Bitmap.FromFile("E://data//facebook//friend.png");
-            SKIP = (Bitmap)Bitmap.FromFile("E://data//facebook//skip.png");
-            NOTNOW = (Bitmap)Bitmap.FromFile("E://data//facebook//notnow.png");
-            YESCONTINUE = (Bitmap)Bitmap.FromFile("E://data//facebook//yescontinue.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//facebook//wrongcode.png");
+            FB = (Bitmap)Bitmap.FromFile("C://data//facebook//fb.png");
+            LIKE = (Bitmap)Bitmap.FromFile("C://data//facebook//like.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//facebook//continue.png");
+            USERNAME = (Bitmap)Bitmap.FromFile("C://data//facebook//username.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//facebook//password.png");
+            LOGIN = (Bitmap)Bitmap.FromFile("C://data//facebook//login.png");
+            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("C://data//facebook//loginaccount.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//facebook//wrongusername.png");
+            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("C://data//facebook//wrongpassword.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//facebook//loginsuccess.png");
+            SETTING = (Bitmap)Bitmap.FromFile("C://data//facebook//setting.png");
+            LOGOUT = (Bitmap)Bitmap.FromFile("C://data//facebook//logout.png");
+            LOGGING = (Bitmap)Bitmap.FromFile("C://data//facebook//logging.png");
+            OK = (Bitmap)Bitmap.FromFile("C://data//facebook//OK.png");
+            RETRY = (Bitmap)Bitmap.FromFile("C://data//facebook//retry.png");
+            LOGINFAILED = (Bitmap)Bitmap.FromFile("C://data//facebook//loginfailed.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//facebook//needcode.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//facebook//code.png");
+            SAVEINFO = (Bitmap)Bitmap.FromFile("C://data//facebook//saveinfo.png");
+            INTERNETERROR = (Bitmap)Bitmap.FromFile("C://data//facebook//interneterror.png");
+            FBICON = (Bitmap)Bitmap.FromFile("C://data//facebook//fbicon.png");
+            FRIEND = (Bitmap)Bitmap.FromFile("C://data//facebook//friend.png");
+            SKIP = (Bitmap)Bitmap.FromFile("C://data//facebook//skip.png");
+            NOTNOW = (Bitmap)Bitmap.FromFile("C://data//facebook//notnow.png");
+            YESCONTINUE = (Bitmap)Bitmap.FromFile("C://data//facebook//yescontinue.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//facebook//wrongcode.png");
 
         }
         public void Delay(int delay)

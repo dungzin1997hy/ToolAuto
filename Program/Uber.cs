@@ -28,16 +28,16 @@ namespace ToolTest
         }
         void LoadData()
         {
-            UBER = (Bitmap)Bitmap.FromFile("E://data//whatsapp//uber.png");
-            START = (Bitmap)Bitmap.FromFile("E://data//whatsapp//start.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//whatsapp//username.png");
-            NEXT = (Bitmap)Bitmap.FromFile("E://data//whatsapp//next.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//needcode.png");
-            SENDCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//sendcode.png");
-            SKIP = (Bitmap)Bitmap.FromFile("E://data//whatsapp//skip.png");
-            SKIP = (Bitmap)Bitmap.FromFile("E://data//whatsapp//skip.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//wrongcode.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//whatsapp//loginsuccess.png");
+            UBER = (Bitmap)Bitmap.FromFile("C://data//whatsapp//uber.png");
+            START = (Bitmap)Bitmap.FromFile("C://data//whatsapp//start.png");
+            USERNAME = (Bitmap)Bitmap.FromFile("C://data//whatsapp//username.png");
+            NEXT = (Bitmap)Bitmap.FromFile("C://data//whatsapp//next.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//needcode.png");
+            SENDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//sendcode.png");
+            SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
+            SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//wrongcode.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//whatsapp//loginsuccess.png");
 
         }
 

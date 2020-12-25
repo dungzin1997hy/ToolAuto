@@ -36,23 +36,23 @@ namespace ToolTest
         }
         void LoadData()
         {
-            VIPER = (Bitmap)Bitmap.FromFile("E://data//viper//viper.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//viper//continue.png");
-            DROP = (Bitmap)Bitmap.FromFile("E://data//viper//drop.png");
-            SEARCH = (Bitmap)Bitmap.FromFile("E://data//viper//search.png");
-            VIETNAM = (Bitmap)Bitmap.FromFile("E://data//viper//vietnam.png");
-            PHONE = (Bitmap)Bitmap.FromFile("E://data//viper//phone.png");
-            CONTINUEMIN = (Bitmap)Bitmap.FromFile("E://data//viper//continuemin.png");
-            YES = (Bitmap)Bitmap.FromFile("E://data//viper//yes.png");
-            SMS = (Bitmap)Bitmap.FromFile("E://data//viper//sms.png");
-            CANTSMS = (Bitmap)Bitmap.FromFile("E://data//viper//cantsms.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//viper//code.png");
-            LOGGING = (Bitmap)Bitmap.FromFile("E://data//viper//logging.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//viper//wrongcode.png");
-            TRYAGAIN = (Bitmap)Bitmap.FromFile("E://data//viper//tryagain.png");
-            ACTIVE = (Bitmap)Bitmap.FromFile("E://data//viper//active.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//viper//loginsuccess.png");
-            TICHV = (Bitmap)Bitmap.FromFile("E://data//viper//tichv.png");
+            VIPER = (Bitmap)Bitmap.FromFile("C://data//viper//viper.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//viper//continue.png");
+            DROP = (Bitmap)Bitmap.FromFile("C://data//viper//drop.png");
+            SEARCH = (Bitmap)Bitmap.FromFile("C://data//viper//search.png");
+            VIETNAM = (Bitmap)Bitmap.FromFile("C://data//viper//vietnam.png");
+            PHONE = (Bitmap)Bitmap.FromFile("C://data//viper//phone.png");
+            CONTINUEMIN = (Bitmap)Bitmap.FromFile("C://data//viper//continuemin.png");
+            YES = (Bitmap)Bitmap.FromFile("C://data//viper//yes.png");
+            SMS = (Bitmap)Bitmap.FromFile("C://data//viper//sms.png");
+            CANTSMS = (Bitmap)Bitmap.FromFile("C://data//viper//cantsms.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//viper//code.png");
+            LOGGING = (Bitmap)Bitmap.FromFile("C://data//viper//logging.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//viper//wrongcode.png");
+            TRYAGAIN = (Bitmap)Bitmap.FromFile("C://data//viper//tryagain.png");
+            ACTIVE = (Bitmap)Bitmap.FromFile("C://data//viper//active.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//viper//loginsuccess.png");
+            TICHV = (Bitmap)Bitmap.FromFile("C://data//viper//tichv.png");
 
         }
         public void Delay(int delay)

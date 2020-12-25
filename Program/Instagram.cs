@@ -24,7 +24,7 @@ namespace ToolTest.Program
     //    }
     //    void LoadData()
     //    {
-    //        INSTAGRAM = (Bitmap)Bitmap.FromFile("E://data//instagram//instagram.png");
+    //        INSTAGRAM = (Bitmap)Bitmap.FromFile("C://data//instagram//instagram.png");
             
     //    }
 

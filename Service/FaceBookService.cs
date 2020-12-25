@@ -12,8 +12,8 @@ namespace ToolTest
 {
     class FaceBookService
     {
-        Bitmap Response = (Bitmap)Bitmap.FromFile("E://data//facebook//response.png");
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("E://data//facebook//forcestop.png");
+        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
+        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
 
         public FaceBook fb = new FaceBook();
         public Services services = new Services();

@@ -35,20 +35,20 @@ namespace ToolTest
         }
         void LoadData()
         {
-            WHATSAPP = (Bitmap)Bitmap.FromFile("E://data//whatsapp//whatsapp.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//continue.png");
-            PHONENUMBER = (Bitmap)Bitmap.FromFile("E://data//whatsapp//phonenumber.png");
-            NEXT = (Bitmap)Bitmap.FromFile("E://data//whatsapp//next.png");
-            OK = (Bitmap)Bitmap.FromFile("E://data//whatsapp//ok.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//needcode.png");
-            CODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//code.png");
-            VERIFYING = (Bitmap)Bitmap.FromFile("E://data//whatsapp//verifying.png");
-            SKIP = (Bitmap)Bitmap.FromFile("E://data//whatsapp//skip.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//whatsapp//loginsuccess.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//whatsapp//wrongusername.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//wrongcode.png");
-            NAME = (Bitmap)Bitmap.FromFile("E://data//whatsapp//name.png");
-            NEXT2 = (Bitmap)Bitmap.FromFile("E://data//whatsapp//next2.png");
+            WHATSAPP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//whatsapp.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//continue.png");
+            PHONENUMBER = (Bitmap)Bitmap.FromFile("C://data//whatsapp//phonenumber.png");
+            NEXT = (Bitmap)Bitmap.FromFile("C://data//whatsapp//next.png");
+            OK = (Bitmap)Bitmap.FromFile("C://data//whatsapp//ok.png");
+            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//needcode.png");
+            CODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//code.png");
+            VERIFYING = (Bitmap)Bitmap.FromFile("C://data//whatsapp//verifying.png");
+            SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
+            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//whatsapp//loginsuccess.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//whatsapp//wrongusername.png");
+            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//wrongcode.png");
+            NAME = (Bitmap)Bitmap.FromFile("C://data//whatsapp//name.png");
+            NEXT2 = (Bitmap)Bitmap.FromFile("C://data//whatsapp//next2.png");
            
         }
 
