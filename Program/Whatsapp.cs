@@ -23,6 +23,8 @@ namespace ToolTest
         Bitmap LOGINSUCCESS;
         Bitmap WRONGUSERNAME;
         Bitmap WRONGCODE;
+        Bitmap NAME;
+        Bitmap NEXT2;
         
         
         
@@ -45,6 +47,8 @@ namespace ToolTest
             LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//whatsapp//loginsuccess.png");
             WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//whatsapp//wrongusername.png");
             WRONGCODE = (Bitmap)Bitmap.FromFile("E://data//whatsapp//wrongcode.png");
+            NAME = (Bitmap)Bitmap.FromFile("E://data//whatsapp//name.png");
+            NEXT2 = (Bitmap)Bitmap.FromFile("E://data//whatsapp//next2.png");
            
         }
 
@@ -65,7 +69,7 @@ namespace ToolTest
             KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.whatsapp");
 
 
-            int count = 10;
+            int count = 20;
             while (true)
             {
                 if (count == 0)
@@ -274,6 +278,7 @@ namespace ToolTest
                 var screen = Services.ScreenShoot(deviceID);
                 var wrongcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGCODE);
                 var skippoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SKIP);
+                var namepoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, NAME);
                 var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LOGINSUCCESS);
                 if (wrongcodePoint != null)
                 {
@@ -337,7 +342,7 @@ namespace ToolTest
                         {
                             return "Login Success";
                         }
-                        if (skippoint != null)
+                        if (skipPoint1 != null)
                         {
                             KAutoHelper.ADBHelper.Tap(deviceID, skippoint.Value.X, skippoint.Value.Y);
 
@@ -357,7 +362,29 @@ namespace ToolTest
                 if (skippoint != null)
                 {
                     KAutoHelper.ADBHelper.Tap(deviceID, skippoint.Value.X, skippoint.Value.Y);
+                    Delay(2);
+                    var screen5 = Services.ScreenShoot(deviceID);
+                    var namePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen5, NAME);
+                    if (namePoint != null) {
 
+                        while (true)
+                        {
+                            Delay(1);
+                            if (Services.findImage(deviceID, NAME) == true)
+                            {
+                                KAutoHelper.ADBHelper.InputText(deviceID, "anh");
+                                break;
+                            }
+                        }
+                        while (true)
+                        {
+                            Delay(1);
+                            if(Services.findImage(deviceID,NEXT2) == true)
+                            {
+                                break;
+                            }
+                        }
+                    }
                     while (true)
                     {
                         Delay(1);
@@ -372,6 +399,36 @@ namespace ToolTest
                 {
                     return "Login Success";
                 }
+                if(namepoint!= null)
+                {
+                    while (true)
+                    {
+                        Delay(1);
+                        if (Services.findImage(deviceID, NAME) == true)
+                        {
+                            KAutoHelper.ADBHelper.InputText(deviceID, "anh");
+                            break;
+                        }
+                    }
+                    while (true)
+                    {
+                        Delay(1);
+                        if (Services.findImage(deviceID, NEXT2) == true)
+                        {
+                            break;
+                        }
+                    }
+                }
+                while (true)
+                {
+                    Delay(1);
+                    if (Services.findImage(deviceID, LOGINSUCCESS) == true)
+                    {
+                        break;
+                    }
+                }
+                return "Login Success";
+            
             }
 
 
@@ -404,8 +461,6 @@ namespace ToolTest
             Delay(5);
             KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.whatsapp ");
             return "Exit Success";
-
-
         }
         Boolean checkLogin(String deviceID)
         {

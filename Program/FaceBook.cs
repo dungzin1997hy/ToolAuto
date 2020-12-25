@@ -89,7 +89,7 @@ namespace ToolTest
             Exit(deviceID);
             KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.facebook.katana");
             Console.WriteLine("adb -s " + deviceID + " shell pm clear com.facebook.katana ");
-            int count = 10;
+            int count = 20;
             while (true)
             {
                 if (count == 0)

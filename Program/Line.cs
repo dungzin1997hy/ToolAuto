@@ -71,7 +71,7 @@ namespace ToolTest
             KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:jp.naver.line.android");
 
 
-            int count = 10;
+            int count = 20;
             while (true)
             {
                 if (count == 0)
@@ -104,14 +104,14 @@ namespace ToolTest
                         }
 
                     }
-                    return "Open Whatsapp Success";
+                    return "Open Line Success";
                 }
                 var screen = Services.ScreenShoot(deviceID);
                 var whatsappPoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, LINE);
                 if (whatsappPoint1 != null)
 
                 {
-                    return "Open Whatsapp Success";
+                    return "Open Line Success";
 
                 }
                 else
@@ -141,23 +141,25 @@ namespace ToolTest
                 {
                     Console.WriteLine("click phonenumber");
                     Delay(1);
-                    KAutoHelper.ADBHelper.InputText(deviceID, username);
+                   
                     break;
                 }
             }
 
             Delay(1);
+            
             while (true)
             {
                 var screen = Services.ScreenShoot(deviceID);
                 var phoneNumberPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, PHONENUMBER);
-                if (phoneNumberPoint != null)
+                if (phoneNumberPoint == null)
                 {
                     KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
-
+                   
                 }
                 else
                 {
+                    Console.WriteLine("delete het");
                     break;
                 }
                 Thread.Sleep(TimeSpan.FromMilliseconds(100));
@@ -223,7 +225,7 @@ namespace ToolTest
                         Delay(1);
                         var screen1 = Services.ScreenShoot(deviceID);
                         var phoneNumberPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, PHONENUMBER);
-                        if (phoneNumberPoint != null)
+                        if (phoneNumberPoint == null)
                         {
                             KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
 
@@ -339,7 +341,7 @@ namespace ToolTest
                 var screen = Services.ScreenShoot(deviceID);
                 var wrongcodePoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, WRONGCODE);
                 var yesaccountPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, YESACCOUNT);
-               
+                var skippoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, SKIP);
                 if (wrongcodePoint != null)
                 {
                     Delay(1);
@@ -369,6 +371,7 @@ namespace ToolTest
                         var screen1 = Services.ScreenShoot(deviceID);
                         var wrongcodePoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, WRONGCODE);
                         var yesaccountPoint1 = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, YESACCOUNT);
+                        var skippoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen1, SKIP);
                         if (wrongcodePoint1 != null)
                         {
                             return "Wrong Auth Code";
@@ -388,6 +391,42 @@ namespace ToolTest
                             }
                             return "Input Password";
                         }
+                        if(skippoint!= null)
+                        {
+                            Delay(1);
+                            KAutoHelper.ADBHelper.Tap(deviceID, skippoint.Value.X, skippoint.Value.Y);
+                            Delay(1);
+
+                            //while (true)
+                            //{
+                            //    Delay(1);
+                            //    if (Services.findImage(deviceID, CONTINUE) == true)
+                            //    {
+                            //        Console.WriteLine("click continue");
+                            //        break;
+                            //    }
+                            //}
+
+                            while (true)
+                            {
+                                Delay(1);
+                                if (Services.findImage(deviceID, NEXT) == true)
+                                {
+                                    break;
+                                }
+                            }
+
+                            while (true)
+                            {
+                                Delay(1);
+                                var screen3 = Services.ScreenShoot(deviceID);
+                                var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen3, LOGINSUCCESS);
+                                if (loginsuccessPoint != null)
+                                {
+                                    return "Login Success";
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -404,6 +443,34 @@ namespace ToolTest
                         }
                     }
                     return "Input Password";
+                }
+                if(skippoint1!= null)
+                {
+                    Delay(1);
+                    KAutoHelper.ADBHelper.Tap(deviceID, skippoint1.Value.X, skippoint1.Value.Y);
+                    Delay(1);
+
+                    
+
+                    while (true)
+                    {
+                        Delay(1);
+                        if (Services.findImage(deviceID, NEXT) == true)
+                        {
+                            break;
+                        }
+                    }
+
+                    while (true)
+                    {
+                        Delay(1);
+                        var screen3 = Services.ScreenShoot(deviceID);
+                        var loginsuccessPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen3, LOGINSUCCESS);
+                        if (loginsuccessPoint != null)
+                        {
+                            return "Login Success";
+                        }
+                    }
                 }
                
             }

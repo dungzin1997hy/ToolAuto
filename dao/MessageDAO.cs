@@ -20,7 +20,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql,"GOOGLE");
+                content = getMessage(conn, sim_id, sql,"GOOGLE","");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -31,7 +31,7 @@ namespace ToolTest.dao
                         String temp = arr[i].Substring(arr[i].Length - 6, arr[i].Length-1);
                         code = Int32.Parse(temp) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return temp;
 
                     }
                     catch (Exception e)
@@ -64,7 +64,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql,"WHATSAPP");
+                content = getMessage(conn, sim_id, sql,"WHATSAPP","");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -75,7 +75,7 @@ namespace ToolTest.dao
                         
                         code = Int32.Parse(arr[i]) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return arr[i];
 
                     }
                     catch (Exception e)
@@ -108,7 +108,8 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql, "LINE");
+
+                content = getMessage(conn, sim_id, sql, "LINE","");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -116,10 +117,10 @@ namespace ToolTest.dao
 
                     try
                     {
-
-                        code = Int32.Parse(arr[i]) + "";
+                        String temp = arr[i].Substring(arr[i].Length - 6, arr[i].Length);
+                        code = Int32.Parse(temp) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return temp;
 
                     }
                     catch (Exception e)
@@ -152,7 +153,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql,"FACEBOOK");
+                content = getMessage(conn, sim_id, sql,"FACEBOOK","");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -162,7 +163,53 @@ namespace ToolTest.dao
                     {
                         code = Int32.Parse(arr[i]) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return arr[i];
+                    }
+                    catch (Exception e)
+                    {
+
+                        continue;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine(e.StackTrace);
+            }
+            finally
+            {
+                // Đóng kết nối.
+                conn.Close();
+                // Tiêu hủy đối tượng, giải phóng tài nguyên.
+                conn.Dispose();
+            }
+
+
+
+            return code;
+        }
+
+        public static String getcodeUber(String sim_id, String sql)
+        {
+            String code = "";
+            String content = "";
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try
+            {
+                content = getMessage(conn, sim_id, sql, "UBER", "");
+                String[] arr = content.Split(" ");
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+
+                    try
+                    {
+                        code = Int32.Parse(arr[i]) + "";
+                        Console.WriteLine("Message: " + content);
+                        return arr[i];
                     }
                     catch (Exception e)
                     {
@@ -198,7 +245,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql, "VERIFY");
+                content = getMessage(conn, sim_id, sql, "VERIFY","or sdt ='SKYPE' or sdt ='MICROSOFT'");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -208,7 +255,7 @@ namespace ToolTest.dao
                     {
                         code = Int32.Parse(arr[i]) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return arr[i];
                     }
                     catch (Exception e)
                     {
@@ -243,7 +290,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql, "ITCVERIFY");
+                content = getMessage(conn, sim_id, sql, "ITCVERIFY","or sdt ='VIBER'");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -253,7 +300,7 @@ namespace ToolTest.dao
                     {
                         code = Int32.Parse(arr[i]) + "";
                         Console.WriteLine("Message: " + content);
-                        return code;
+                        return arr[i];
                     }
                     catch (Exception e)
                     {
@@ -320,11 +367,11 @@ namespace ToolTest.dao
             return status;
 
         }
-        public static String getMessage(MySqlConnection conn,String simID, String sql,String app)
+        public static String getMessage(MySqlConnection conn,String simID, String sql,String app,String neu)
         {
             String code = "";
             String a = " ";
-            String sql1 = "SELECT * FROM messages where sim_id = '" + simID + "' and sdt ='"+app+"' "+sql+" order by id desc limit 1;";
+            String sql1 = "SELECT * FROM messages where sim_id = '" + simID + "' and sdt LIKE'%"+app+"%' "+ neu+" "+sql+" order by id desc limit 1;";
             // Tạo một đối tượng Command.
             MySqlCommand cmd = new MySqlCommand();
 
@@ -343,6 +390,9 @@ namespace ToolTest.dao
                       
                         content = reader.GetString(1);
                         Console.WriteLine("Message: " + content);
+                        content = content.Replace("-", "");
+                        content = content.Replace(".", " ");
+                        content = content.Replace("\n", " ");
                         return content;
                        
                         String[] arr = content.Split(" ");

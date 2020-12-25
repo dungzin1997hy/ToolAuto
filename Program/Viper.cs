@@ -27,6 +27,7 @@ namespace ToolTest
         Bitmap TRYAGAIN;
         Bitmap ACTIVE;
         Bitmap LOGINSUCCESS;
+        Bitmap TICHV;
 
         #endregion
         public Viper()
@@ -51,6 +52,7 @@ namespace ToolTest
             TRYAGAIN = (Bitmap)Bitmap.FromFile("E://data//viper//tryagain.png");
             ACTIVE = (Bitmap)Bitmap.FromFile("E://data//viper//active.png");
             LOGINSUCCESS = (Bitmap)Bitmap.FromFile("E://data//viper//loginsuccess.png");
+            TICHV = (Bitmap)Bitmap.FromFile("E://data//viper//tichv.png");
 
         }
         public void Delay(int delay)
@@ -69,7 +71,7 @@ namespace ToolTest
             Exit(deviceID);
             KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.viber.voip");
             Console.WriteLine("adb -s " + deviceID + " shell pm clear com.viber.voip ");
-            int count = 10;
+            int count = 20;
             while (true)
             {
                 if (count == 0)
@@ -179,6 +181,21 @@ namespace ToolTest
                     break;
                 }
             }
+
+            while (true)
+            {
+                Delay(1);
+                if (Services.findImage(deviceID, CONTINUEMIN) == true)
+                {
+                    Console.WriteLine("click CONTINUE");
+                    Delay(1);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("dang doi CONTINUE");
+                }
+            }
             while (true)
             {
                 Delay(1);
@@ -187,6 +204,10 @@ namespace ToolTest
                     Console.WriteLine("click yes");
                     Delay(1);
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("dang doi yes");
                 }
             }
             while (true)
@@ -220,7 +241,7 @@ namespace ToolTest
                     break;
                 }
             }
-            Delay(20);
+          
             int dem = 80;
             String code = "";
             while (true)
@@ -232,7 +253,7 @@ namespace ToolTest
                 }
 
                 if (dem == 0) break;
-                code = MessageDAO.getCodeViper(simID, MessageDAO.FBsql);
+                code = MessageDAO.getCodeViper(simID, "");
                 if (code == "" || code == null)
                 {
                     Console.WriteLine("DANG DOI TIN NHAN");
@@ -288,7 +309,7 @@ namespace ToolTest
                     break;
                 }
             }
-            Delay(2);
+            Delay(3);
             if (Services.findImage(deviceID, WRONGCODE) == true)
             {
                 while (true)
@@ -335,6 +356,18 @@ namespace ToolTest
                 }
 
                 if (Services.findImage(deviceID, WRONGCODE) == true) return "Wrong Code";
+            }
+
+            Delay(1);
+            if(Services.findImage(deviceID,TICHV) == true)
+            {
+                Delay(2);
+            }
+            Delay(1);
+
+            if (Services.findImage(deviceID, TICHV) == true)
+            {
+                Delay(2);
             }
 
             while (true)

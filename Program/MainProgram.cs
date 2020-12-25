@@ -26,6 +26,11 @@ namespace ToolTest
             FaceBookService faceBookService = new FaceBookService();
             SkypeService skypeService = new SkypeService();
             GmailServices gmailService = new GmailServices();
+            ViperServices viperServices = new ViperServices();
+            LineService line = new LineService();
+            WhatAppServices whatApp = new WhatAppServices();
+            TwitterService twitter = new TwitterService();
+            UberServices uber = new UberServices();
             
              switch (args[0])
              {
@@ -48,7 +53,23 @@ namespace ToolTest
                      gmailService.runGmail(args[1], args[2], args[3], args[4], args[5]);
                      break;
 
-                 case "info":
+                case "viper_login_logout":
+                    viperServices.run3(args[1],args[2], args[3], args[4], args[6], args[5]);
+                    break;
+                case "line_login_logout":
+                    line.run3(args[1], args[2], args[3], args[4], args[6], args[5]);
+                    break;
+                case "whatsapp_login_logout":
+                    whatApp.run3(args[1], args[2], args[3], args[4], args[6], args[5]);
+                    break;
+                case "twitter_login_logout":
+                    twitter.run3(args[1], args[2], args[3], args[4], args[6], args[5]);
+                    break;
+                case "uber_login_logout":
+                    uber.run3(args[1], args[2], args[3], args[4], args[6], args[5]);
+                    break;
+
+                case "info":
                      List<String> devices = Services.getAllDevice();
                      Console.WriteLine(devices.Count());
                      foreach (var deviceID in devices)

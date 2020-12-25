@@ -85,7 +85,7 @@ namespace ToolTest
             KAutoHelper.ADBHelper.ExecuteCMD("D:\\Nox\\bin\\Nox.exe -clone:" + noxID + " -package:com.skype.raider");
 
 
-            int count = 10;
+            int count = 20;
             while (true)
             {
                 if (count == 0)
