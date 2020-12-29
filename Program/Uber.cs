@@ -28,17 +28,22 @@ namespace ToolTest
         }
         void LoadData()
         {
-            UBER = (Bitmap)Bitmap.FromFile("C://data//whatsapp//uber.png");
-            START = (Bitmap)Bitmap.FromFile("C://data//whatsapp//start.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("C://data//whatsapp//username.png");
-            NEXT = (Bitmap)Bitmap.FromFile("C://data//whatsapp//next.png");
-            NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//needcode.png");
-            SENDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//sendcode.png");
-            SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
-            SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
-            WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//wrongcode.png");
-            LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//whatsapp//loginsuccess.png");
-
+            try
+            {
+                UBER = (Bitmap)Bitmap.FromFile("C://data//whatsapp//uber.png");
+                START = (Bitmap)Bitmap.FromFile("C://data//whatsapp//start.png");
+                USERNAME = (Bitmap)Bitmap.FromFile("C://data//whatsapp//username.png");
+                NEXT = (Bitmap)Bitmap.FromFile("C://data//whatsapp//next.png");
+                NEEDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//needcode.png");
+                SENDCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//sendcode.png");
+                SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
+                SKIP = (Bitmap)Bitmap.FromFile("C://data//whatsapp//skip.png");
+                WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//whatsapp//wrongcode.png");
+                LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//whatsapp//loginsuccess.png");
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
 
         void Delay(int delay)
@@ -207,9 +212,9 @@ namespace ToolTest
 
             }
             KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
-            Thread.Sleep(TimeSpan.FromMilliseconds(200));KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
-            Thread.Sleep(TimeSpan.FromMilliseconds(200));KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
-            Thread.Sleep(TimeSpan.FromMilliseconds(200));KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
+            Thread.Sleep(TimeSpan.FromMilliseconds(200)); KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
+            Thread.Sleep(TimeSpan.FromMilliseconds(200)); KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
+            Thread.Sleep(TimeSpan.FromMilliseconds(200)); KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_DEL);
             Thread.Sleep(TimeSpan.FromMilliseconds(200));
 
             KAutoHelper.ADBHelper.InputText(deviceID, code);
@@ -266,14 +271,14 @@ namespace ToolTest
                 {
                     KAutoHelper.ADBHelper.Tap(deviceID, skippoint.Value.X, skippoint.Value.Y);
                     Delay(2);
-                    
+
                 }
                 if (loginsuccessPoint != null)
                 {
                     return "Login Success";
                 }
-                
-              
+
+
 
             }
 

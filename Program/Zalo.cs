@@ -37,21 +37,21 @@ namespace ToolTest
         }
         void LoadData()
         {
-            ZALO = (Bitmap)Bitmap.FromFile("E://data//zalo//zalo.png");
-            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("E://data//zalo//loginaccount.png");
-            CLEAR = (Bitmap)Bitmap.FromFile("E://data//zalo//clear.png");
-            USERNAME = (Bitmap)Bitmap.FromFile("E://data//zalo//username.png");
-            PASSWORD = (Bitmap)Bitmap.FromFile("E://data//zalo//password.png");
-            CONTINUE = (Bitmap)Bitmap.FromFile("E://data//zalo//continue.png");
-            LOGGING = (Bitmap)Bitmap.FromFile("E://data//zalo//logging.png");
-            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("E://data//zalo//wrongusername.png");
-            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("E://data//zalo//wrongpassword.png");
-            MORE = (Bitmap)Bitmap.FromFile("E://data//zalo//more.png");
-            SETTING = (Bitmap)Bitmap.FromFile("E://data//zalo//setting.png");
-            LOGOUT = (Bitmap)Bitmap.FromFile("E://data//zalo//logout.png");
-            YES = (Bitmap)Bitmap.FromFile("E://data//zalo//yes.png");
-            WRONGPASSWORD2 = (Bitmap)Bitmap.FromFile("E://data//zalo//wrongpassword2.png");
-            Skip = (Bitmap)Bitmap.FromFile("E://data//zalo//skip.png");
+            ZALO = (Bitmap)Bitmap.FromFile("C://data//zalo//zalo.png");
+            LOGINACCOUNT = (Bitmap)Bitmap.FromFile("C://data//zalo//loginaccount.png");
+            CLEAR = (Bitmap)Bitmap.FromFile("C://data//zalo//clear.png");
+            USERNAME = (Bitmap)Bitmap.FromFile("C://data//zalo//username.png");
+            PASSWORD = (Bitmap)Bitmap.FromFile("C://data//zalo//password.png");
+            CONTINUE = (Bitmap)Bitmap.FromFile("C://data//zalo//continue.png");
+            LOGGING = (Bitmap)Bitmap.FromFile("C://data//zalo//logging.png");
+            WRONGUSERNAME = (Bitmap)Bitmap.FromFile("C://data//zalo//wrongusername.png");
+            WRONGPASSWORD = (Bitmap)Bitmap.FromFile("C://data//zalo//wrongpassword.png");
+            MORE = (Bitmap)Bitmap.FromFile("C://data//zalo//more.png");
+            SETTING = (Bitmap)Bitmap.FromFile("C://data//zalo//setting.png");
+            LOGOUT = (Bitmap)Bitmap.FromFile("C://data//zalo//logout.png");
+            YES = (Bitmap)Bitmap.FromFile("C://data//zalo//yes.png");
+            WRONGPASSWORD2 = (Bitmap)Bitmap.FromFile("C://data//zalo//wrongpassword2.png");
+            Skip = (Bitmap)Bitmap.FromFile("C://data//zalo//skip.png");
         }
         public void Delay(int delay)
         {

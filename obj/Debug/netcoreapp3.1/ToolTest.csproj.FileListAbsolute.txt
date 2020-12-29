@@ -1,6 +1,5 @@
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\Debug\netcoreapp3.1\ToolTest.exe
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\Debug\netcoreapp3.1\KAutoHelper.dll
-C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Debug\netcoreapp3.1\ToolTest.csprojAssemblyReference.cache
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Debug\netcoreapp3.1\ToolTest.AssemblyInfoInputs.cache
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Debug\netcoreapp3.1\ToolTest.AssemblyInfo.cs
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Debug\netcoreapp3.1\ToolTest.csproj.CopyComplete
