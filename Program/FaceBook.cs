@@ -624,27 +624,32 @@ namespace ToolTest
         }
         public string Exit(String deviceID)
         {
-
-            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_APP_SWITCH);
-            Delay(1);
-            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
-            Thread.Sleep(TimeSpan.FromMilliseconds(500));
-            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
-            Thread.Sleep(TimeSpan.FromMilliseconds(500));
-            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
-            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
-            Thread.Sleep(TimeSpan.FromMilliseconds(500));
-            KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
-            Thread.Sleep(TimeSpan.FromMilliseconds(500));
-            Delay(1);
-            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
-            Delay(1);
-            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
-            Delay(1);
-            KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
-            Delay(3);
-            KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.facebook.katana ");
-            Delay(1);
+            try
+            {
+                KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_APP_SWITCH);
+                Delay(1);
+                KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+                KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                KAutoHelper.ADBHelper.Swipe(deviceID, 600, 700, 100, 700);
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Delay(1);
+                KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
+                Delay(1);
+                KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
+                Delay(1);
+                KAutoHelper.ADBHelper.Key(deviceID, KAutoHelper.ADBKeyEvent.KEYCODE_BACK);
+                Delay(3);
+                KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.facebook.katana ");
+                Delay(1);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
             return "Exit Success";
 
         }
