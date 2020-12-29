@@ -217,6 +217,7 @@ namespace ToolTest
         }
         public void Exit(String deviceID)
         {
+            Console.WriteLine("exit app");
             fb.Exit(deviceID);
             isStop = true;
             Console.WriteLine("Exit success");

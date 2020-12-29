@@ -41,4 +41,3 @@ C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Release\netcoreapp3.1\ToolTest.c
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Release\netcoreapp3.1\ToolTest.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Release\netcoreapp3.1\ToolTest.pdb
 C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Release\netcoreapp3.1\ToolTest.genruntimeconfig.cache
-C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\Release\netcoreapp3.1\ToolTest.csprojAssemblyReference.cache
