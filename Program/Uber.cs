@@ -218,6 +218,7 @@ namespace ToolTest
             Thread.Sleep(TimeSpan.FromMilliseconds(200));
 
             KAutoHelper.ADBHelper.InputText(deviceID, code);
+            return "Login Success";
 
             while (true)
             {

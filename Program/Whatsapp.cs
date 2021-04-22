@@ -401,6 +401,7 @@ namespace ToolTest
                 }
                 if(namepoint!= null)
                 {
+                    return "Login Success";
                     while (true)
                     {
                         Delay(1);

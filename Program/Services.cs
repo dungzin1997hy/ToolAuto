@@ -23,11 +23,30 @@ namespace ToolTest
             var point = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, bitmap);
             if (point != null)
             {
-                KAutoHelper.ADBHelper.Tap(deviceId, point.Value.X, point.Value.Y);
+                KAutoHelper.ADBHelper.Tap(deviceId, point.Value.X+10, point.Value.Y+10);
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 return true;
             }
             else return false;
+        }
+
+        public static void pressImage(String deviceID, Bitmap bitmap,String name)
+        {
+            while (true)
+            {
+                Delay(1);
+                if(findImage(deviceID,bitmap) == true)
+                {
+                    Delay(1);
+                    Console.WriteLine(deviceID + " press " + name);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(deviceID + " wait : " + name);
+                }
+            }
+
         }
         public Boolean checkInternet(String deviceID)
         {
@@ -45,7 +64,7 @@ namespace ToolTest
 
             return isHasInternet;
         }
-        public void Delay(int delay)
+        public static void Delay(int delay)
         {
             while (delay > 0)
             {

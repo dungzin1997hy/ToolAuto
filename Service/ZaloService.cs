@@ -12,54 +12,54 @@ namespace ToolTest
     
     class ZaloService
     {
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
+        //Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
 
-        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
+        //Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
         public Zalo zalo = new Zalo();
         public Services services = new Services();
         public static Boolean isStop;
         public static Boolean checkStopInternet = false;
         public static Boolean isHasInternet = true;
 
-        public void checkInternet(String deviceID)
-        {
-            while (checkStopInternet == false)
-            {
-                String a = KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell ping -c 2 google.com");
-                //   Console.WriteLine(a);
-                var screen = Services.ScreenShoot(deviceID);
-                var ForceStopPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, ForceStop);
-                var responsepoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, Response);
-                if (ForceStopPoint != null || responsepoint != null)
-                {
-                    Console.WriteLine("Error: ForceStop App");
-                    isStop = true;
-                    zalo.Exit(deviceID);
-                    Environment.Exit(0);
-                }
-                String status = MessageDAO.getStatus(deviceID);
-                Console.WriteLine("status : " + status);
-                if (status.Equals("stopped"))
-                {
-                    KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.zing.zalo ");
-                    zalo.Exit(deviceID);
-                    Environment.Exit(0);
-                }
+        //public void checkInternet(String deviceID)
+        //{
+        //    while (checkStopInternet == false)
+        //    {
+        //        String a = KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell ping -c 2 google.com");
+        //        //   Console.WriteLine(a);
+        //        var screen = Services.ScreenShoot(deviceID);
+        //        var ForceStopPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, ForceStop);
+        //        var responsepoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, Response);
+        //        if (ForceStopPoint != null || responsepoint != null)
+        //        {
+        //            Console.WriteLine("Error: ForceStop App");
+        //            isStop = true;
+        //            zalo.Exit(deviceID);
+        //            Environment.Exit(0);
+        //        }
+        //        String status = MessageDAO.getStatus(deviceID);
+        //        Console.WriteLine("status : " + status);
+        //        if (status.Equals("stopped"))
+        //        {
+        //            KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.zing.zalo ");
+        //            zalo.Exit(deviceID);
+        //            Environment.Exit(0);
+        //        }
 
 
-                if (a.Contains("unknown host"))
-                {
-                    Console.WriteLine("Error: Lost Connection");
-                    zalo.Exit(deviceID);
-                    isHasInternet = false;
-                    Environment.Exit(0);
-                }
-                else isHasInternet = true;
-                Console.WriteLine(deviceID + ": " + isHasInternet);
-                Thread.Sleep(TimeSpan.FromSeconds(2));
+        //        if (a.Contains("unknown host"))
+        //        {
+        //            Console.WriteLine("Error: Lost Connection");
+        //            zalo.Exit(deviceID);
+        //            isHasInternet = false;
+        //            Environment.Exit(0);
+        //        }
+        //        else isHasInternet = true;
+        //        Console.WriteLine(deviceID + ": " + isHasInternet);
+        //        Thread.Sleep(TimeSpan.FromSeconds(2));
 
-            }
-        }
+        //    }
+        //}
         public void run1(String deviceID,String username, String password,String noxID)
         {
             bool isStop = false;
@@ -67,12 +67,12 @@ namespace ToolTest
             bool isHasInternet = true;
             int process = 0;
 
-            Thread thread = new Thread(() =>
-                checkInternet(deviceID)
+            //Thread thread = new Thread(() =>
+            //    checkInternet(deviceID)
 
-                );
+            //    );
             
-            thread.Start();
+            //thread.Start();
 
 
             Console.WriteLine("Action: Wait");

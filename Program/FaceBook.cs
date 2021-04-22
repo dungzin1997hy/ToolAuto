@@ -41,7 +41,7 @@ namespace ToolTest
         #endregion
         public FaceBook()
         {
-            LoadData();
+            //LoadData();
         }
         void LoadData()
         {

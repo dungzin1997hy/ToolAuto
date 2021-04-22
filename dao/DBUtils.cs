@@ -11,7 +11,7 @@ namespace ToolTest.dao
         {
             string host = "localhost";
             int port = 3306;
-            string database = "quanlysimbox";
+            string database = "simbox";
             string username = "root";
             string password = "123456";
 

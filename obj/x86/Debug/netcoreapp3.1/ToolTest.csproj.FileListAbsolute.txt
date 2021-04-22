@@ -22,7 +22,6 @@ C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\x86\libt
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\x64\liblept1753.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\x64\libtesseract3052.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\Tesseract.dll
-C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\x86\Debug\netcoreapp3.1\ToolTest.csproj.CoreCompileInputs.cache
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\Google.Protobuf.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
@@ -40,3 +39,4 @@ C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\System.W
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\tiz\source\repos\ToolTest\ToolTest\bin\x86\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\tiz\source\repos\ToolTest\ToolTest\obj\x86\Debug\netcoreapp3.1\ToolTest.csproj.CoreCompileInputs.cache

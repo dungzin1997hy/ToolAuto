@@ -9,8 +9,8 @@ namespace ToolTest
 {
     class SkypeService
     {
-        Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
-        Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
+        //Bitmap ForceStop = (Bitmap)Bitmap.FromFile("C://data//facebook//forcestop.png");
+        //Bitmap Response = (Bitmap)Bitmap.FromFile("C://data//facebook//response.png");
 
         public Skype skype = new Skype();
         public Services services = new Services();
@@ -19,54 +19,54 @@ namespace ToolTest
         public static Boolean checkStopInternet = false;
         public static Boolean isHasInternet = true;
         public static Boolean isLoginSuccess = false;
-        public void checkInternet(String deviceID)
-        {
-            try
-            {
-                while (checkStopInternet == false)
-                {
-                    String a = KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell ping -c 2 google.com");
-                    //   Console.WriteLine(a);
-                    var screen = Services.ScreenShoot(deviceID);
-                    var ForceStopPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, ForceStop);
-                    var responsepoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, Response);
-                    if (ForceStopPoint != null || responsepoint != null)
-                    {
-                        Console.WriteLine("Error: ForceStop App");
-                        isStop = true;
-                        skype.Exit(deviceID);
-                        Environment.Exit(0);
-                    }
+        //public void checkInternet(String deviceID)
+        //{
+        //    try
+        //    {
+        //        while (checkStopInternet == false)
+        //        {
+        //            String a = KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell ping -c 2 google.com");
+        //            //   Console.WriteLine(a);
+        //            var screen = Services.ScreenShoot(deviceID);
+        //            var ForceStopPoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, ForceStop);
+        //            var responsepoint = KAutoHelper.ImageScanOpenCV.FindOutPoint(screen, Response);
+        //            if (ForceStopPoint != null || responsepoint != null)
+        //            {
+        //                Console.WriteLine("Error: ForceStop App");
+        //                isStop = true;
+        //                skype.Exit(deviceID);
+        //                Environment.Exit(0);
+        //            }
 
-                    String status = MessageDAO.getStatus(deviceID);
-                    Console.WriteLine("status : " + status);
-                    if (status.Equals("stopped"))
-                    {
-                        KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.skype.raider ");
-                       skype.Exit(deviceID);
-                        Environment.Exit(0);
-                    }
+        //            String status = MessageDAO.getStatus(deviceID);
+        //            Console.WriteLine("status : " + status);
+        //            if (status.Equals("stopped"))
+        //            {
+        //                KAutoHelper.ADBHelper.ExecuteCMD("adb -s " + deviceID + " shell pm clear com.skype.raider ");
+        //               skype.Exit(deviceID);
+        //                Environment.Exit(0);
+        //            }
 
-                    if (a.Contains("unknown host"))
-                    {
-                        Console.WriteLine("Error: Lost Connection");
-                        skype.Exit(deviceID);
-                        isHasInternet = false;
-                        Environment.Exit(0);
-                    }
-                    else isHasInternet = true;
-                    Console.WriteLine(deviceID + ": " + isHasInternet);
-                    Thread.Sleep(TimeSpan.FromSeconds(2));
+        //            if (a.Contains("unknown host"))
+        //            {
+        //                Console.WriteLine("Error: Lost Connection");
+        //                skype.Exit(deviceID);
+        //                isHasInternet = false;
+        //                Environment.Exit(0);
+        //            }
+        //            else isHasInternet = true;
+        //            Console.WriteLine(deviceID + ": " + isHasInternet);
+        //            Thread.Sleep(TimeSpan.FromSeconds(2));
 
-                }
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                Console.WriteLine("Error: App Force Stop");
-                Exit(deviceID);
-                Environment.Exit(0);
-            }
-        }
+        //        }
+        //    }catch(Exception e)
+        //    {
+        //        Console.WriteLine(e.StackTrace);
+        //        Console.WriteLine("Error: App Force Stop");
+        //        Exit(deviceID);
+        //        Environment.Exit(0);
+        //    }
+        //}
         public void print(String action, int process, String error)
         {
             Console.WriteLine("Action: " + action);
@@ -84,11 +84,11 @@ namespace ToolTest
             bool isHasInternet = true;
             int process = 0;
 
-            Thread thread = new Thread(() =>
-                checkInternet(deviceID)
-                );
+            //Thread thread = new Thread(() =>
+            //    checkInternet(deviceID)
+            //    );
 
-            thread.Start();
+            //thread.Start();
 
 
             Console.WriteLine("Action: Wait");

@@ -379,6 +379,7 @@ namespace ToolTest
                        
                         if (yesaccountPoint1 != null)
                         {
+                            return "Login Success";
                             KAutoHelper.ADBHelper.Tap(deviceID, yesaccountPoint1.Value.X, yesaccountPoint1.Value.Y);
                             Delay(1);
                             while (true)
@@ -433,7 +434,7 @@ namespace ToolTest
                 if (yesaccountPoint != null)
                 {
                     KAutoHelper.ADBHelper.Tap(deviceID, yesaccountPoint.Value.X, yesaccountPoint.Value.Y);
-
+                    return "Login Success";
                     while (true)
                     {
                         Delay(1);

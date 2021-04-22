@@ -31,7 +31,7 @@ namespace ToolTest
         #endregion
         public Gmail()
         {
-            LoadData();
+            //LoadData();
         }
         void LoadData()
         {
@@ -52,6 +52,7 @@ namespace ToolTest
             CODE = (Bitmap)Bitmap.FromFile("C://data//gmail//code.png");
             WRONGCODE = (Bitmap)Bitmap.FromFile("C://data//gmail//wrongcode.png");
             LOGINSUCCESS = (Bitmap)Bitmap.FromFile("C://data//gmail//loginsuccess.png");
+            TOOMUCH = (Bitmap)Bitmap.FromFile("C://data//gmail//toomuch.png");
             TOOMUCH = (Bitmap)Bitmap.FromFile("C://data//gmail//toomuch.png");
 
           

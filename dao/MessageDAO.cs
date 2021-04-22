@@ -20,7 +20,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql,"GOOGLE","");
+                content = getMessage(conn, sim_id, sql,"Google", "or originator_address ='Google' or originator_address ='GOOGLE'");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -28,7 +28,96 @@ namespace ToolTest.dao
 
                     try
                     {
-                        String temp = arr[i].Substring(arr[i].Length - 6, arr[i].Length-1);
+                        String temp = arr[i].Substring(arr[i].Length - 6, 6);
+                        code = Int32.Parse(temp) + "";
+                        Console.WriteLine("Message: " + content);
+                        return temp;
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        continue;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine(e.StackTrace);
+            }
+            finally
+            {
+                // Đóng kết nối.
+                conn.Close();
+                // Tiêu hủy đối tượng, giải phóng tài nguyên.
+                conn.Dispose();
+            }
+            return code;
+        }
+
+        public static String getCodeBigo(String sim_id, String sql)
+        {
+            String code = "";
+            String content = "";
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try
+            {
+                content = getMessage(conn, sim_id, sql, "BIGO", "");
+                String[] arr = content.Split(" ");
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+
+                    try
+                    {
+                        String temp = arr[i];
+                        code = Int32.Parse(temp) + "";
+                        Console.WriteLine("Message: " + content);
+                        return temp;
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        continue;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine(e.StackTrace);
+            }
+            finally
+            {
+                // Đóng kết nối.
+                conn.Close();
+                // Tiêu hủy đối tượng, giải phóng tài nguyên.
+                conn.Dispose();
+            }
+            return code;
+        }
+        public static String getCodeGrap(String sim_id, String sql)
+        {
+            String code = "";
+            String content = "";
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try
+            {
+                content = getMessage(conn, sim_id, sql, "GRAP", "");
+                String[] arr = content.Split(" ");
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+
+                    try
+                    {
+                        String temp = arr[i];
                         code = Int32.Parse(temp) + "";
                         Console.WriteLine("Message: " + content);
                         return temp;
@@ -245,7 +334,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql, "VERIFY","or sdt ='SKYPE' or sdt ='MICROSOFT'");
+                content = getMessage(conn, sim_id, sql, "VERIFY","or originator_address ='SKYPE' or originator_address ='MICROSOFT'");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -290,7 +379,7 @@ namespace ToolTest.dao
             conn.Open();
             try
             {
-                content = getMessage(conn, sim_id, sql, "ITCVERIFY","or sdt ='VIBER'");
+                content = getMessage(conn, sim_id, sql, "ITCVERIFY","or originator_address ='VIBER'");
                 String[] arr = content.Split(" ");
 
                 for (int i = 0; i < arr.Length; i++)
@@ -298,7 +387,9 @@ namespace ToolTest.dao
 
                     try
                     {
+                        
                         code = Int32.Parse(arr[i]) + "";
+                        
                         Console.WriteLine("Message: " + content);
                         return arr[i];
                     }
@@ -335,7 +426,7 @@ namespace ToolTest.dao
             String status = "";
             try
             {
-                String sql = "SELECT status FROM device_status WHERE device_id = '" + deviceID + "' ORDER BY id DESC LIMIT 1";
+                String sql = "SELECT stop FROM stop LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand();
 
                 // Liên hợp Command với Connection.
@@ -371,7 +462,7 @@ namespace ToolTest.dao
         {
             String code = "";
             String a = " ";
-            String sql1 = "SELECT * FROM messages where sim_id = '" + simID + "' and sdt LIKE'%"+app+"%' "+ neu+" "+sql+" order by id desc limit 1;";
+            String sql1 = "SELECT * FROM sms_table where sim_serial = '" + simID + "' and (originator_address LIKE'%"+app+"%' "+ neu+") "+sql+" order by id desc limit 1;";
             // Tạo một đối tượng Command.
             MySqlCommand cmd = new MySqlCommand();
 
@@ -388,7 +479,7 @@ namespace ToolTest.dao
                     while (reader.Read())
                     {
                       
-                        content = reader.GetString(1);
+                        content = reader.GetString(3);
                         Console.WriteLine("Message: " + content);
                         content = content.Replace("-", "");
                         content = content.Replace(".", " ");
@@ -421,6 +512,20 @@ namespace ToolTest.dao
             }
             Console.WriteLine("Message: " + content);
             return code;
+        }
+
+        public void insertStatus(MySqlConnection conn,String simID,String appname,String status,String error)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "INSERT INTO status(sim_serial,app_name,status,error_name) VALUES(@sim_serial,@app_name,@status,@error_name)";
+            cmd.Prepare();
+
+            cmd.Parameters.AddWithValue("@sim_serial", simID);
+            cmd.Parameters.AddWithValue("@app_name", appname);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@error_name", error);
+            cmd.ExecuteNonQuery();
         }
     }
 }

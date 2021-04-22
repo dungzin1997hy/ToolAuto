@@ -357,7 +357,7 @@ namespace ToolTest
 
                 if (Services.findImage(deviceID, WRONGCODE) == true) return "Wrong Code";
             }
-
+            return "Login Success";
             Delay(1);
             if(Services.findImage(deviceID,TICHV) == true)
             {
@@ -378,7 +378,7 @@ namespace ToolTest
                     break;
                 }
             }
-            return "Login Success";
+           
         }
 
 
